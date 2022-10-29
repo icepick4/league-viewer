@@ -1,5 +1,5 @@
 export type Skin = {
-    id: number;
+    num: number;
     name: string;
     splashPath: string;
     chromas: boolean;
@@ -11,6 +11,7 @@ export class Champion {
         public name: string,
         public lore: string,
         public mainImage: string,
+        public icon: string,
         public skins: Skin[],
         public nbSkins: number
     ) {}

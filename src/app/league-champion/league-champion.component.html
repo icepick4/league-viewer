@@ -1,6 +1,7 @@
 <div class="champion">
-    <h1>{{champion.name}}</h1>
-    <img [src]="champion.mainImage" alt="champion image">
-    <p>{{champion.lore}}</p>
-    <p>{{champion.name}} a {{champion.nbSkins}} skins !</p>
+    <h1 id="title">{{champion.name}}</h1>
+    <img id="main-img" [src]="champion.mainImage" alt="champion image">
+    <button>Afficher le lore de {{champion.name}}</button>
+    <p id="lore">{{champion.lore}}</p>
+    <p id="nb-skins">{{champion.name}} a {{champion.nbSkins}} skins !</p>
 </div>

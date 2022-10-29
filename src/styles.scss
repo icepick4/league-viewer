@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 * {
     font-family: Roboto, Helvetica, sans-serif;
+}
+
+.background--custom {
+    background: linear-gradient(90deg, #0641c2, #7dd5f8, #e02276);
+    background-size: 300% 300%;
+    animation: gradient 4s alternate infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
+@keyframes gradient {
+0% {
+    background-position: 0%;
+}
+100% {
+    background-position: 100%;
+}
+}
