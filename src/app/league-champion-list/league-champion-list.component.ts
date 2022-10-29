@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 @Component({
@@ -8,28 +9,17 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LeagueChampionListComponent implements OnInit {
     champions!: Champion[];
-    showChampion!: Champion;
-    constructor(private leagueChampionService: LeagueChampionService) {}
+    constructor(
+        private leagueChampionService: LeagueChampionService,
+        private route: ActivatedRoute,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
-        if (this.leagueChampionService.champions.length === 0) {
-            this.leagueChampionService
-                .getAllChampions()
-                .then((champions: Champion[]) => {
-                    this.champions = champions;
-                });
-        } else {
-            this.champions = this.leagueChampionService.champions;
-        }
-        this.showChampion = new Champion(0, '', '', '', '', [], 0, 0, false);
+        this.champions = this.leagueChampionService.getAllChampions();
     }
 
-    onChampionClick(id: number): void {
-        //preload the mainImage of the champion
-        const img = new Image();
-        img.src = this.champions[id].mainImage;
-
-        this.showChampion = this.champions[id];
-        this.showChampion.show = true;
+    onChampionClick(name: string): void {
+        this.router.navigateByUrl('/champions/' + name);
     }
 }

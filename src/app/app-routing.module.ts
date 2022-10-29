@@ -12,6 +12,10 @@ const routes: Routes = [
         path: '',
         component: LandingPageComponent,
     },
+    {
+        path: 'champions/:name',
+        component: LeagueChampionListComponent,
+    },
 ];
 
 @NgModule({

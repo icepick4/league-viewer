@@ -14,7 +14,6 @@ export class Champion {
         public icon: string,
         public skins: Skin[],
         public nbSkins: number,
-        public currentSkin: number,
-        public show: boolean
+        public currentSkin: number
     ) {}
 }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 @Component({
@@ -7,25 +8,39 @@ import { LeagueChampionService } from '../services/league-champion.service';
     styleUrls: ['./league-champion.component.scss'],
 })
 export class LeagueChampionComponent implements OnInit {
-    @Input() champion!: Champion;
+    champion!: Champion | null;
 
-    constructor(private leagueChampionService: LeagueChampionService) {}
+    constructor(
+        private leagueChampionService: LeagueChampionService,
+        private route: ActivatedRoute,
+        private router: Router
+    ) {
+        router.events.subscribe(() => {
+            if (router.url === '/champions') {
+                this.champion = null;
+            } else {
+                const name = this.route.snapshot.params['name'];
+                this.champion =
+                    this.leagueChampionService.getChampionByName(name);
+            }
+        });
+    }
 
     ngOnInit(): void {}
 
     onClose(): void {
-        this.champion.show = false;
-    }
-
-    displayTheChampion(): void {
-        this.champion.show = true;
+        this.router.navigateByUrl('/champions');
     }
 
     goRight(): void {
-        this.leagueChampionService.changeSkinRight(this.champion);
+        if (this.champion) {
+            this.leagueChampionService.changeSkinRight(this.champion);
+        }
     }
 
     goLeft(): void {
-        this.leagueChampionService.changeSkinLeft(this.champion);
+        if (this.champion) {
+            this.leagueChampionService.changeSkinLeft(this.champion);
+        }
     }
 }

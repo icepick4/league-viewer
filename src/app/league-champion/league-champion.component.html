@@ -1,4 +1,4 @@
-<div class="champion background--custom-champ">
+<div *ngIf="champion" class="champion background--custom-champ">
     <button id="close" (click)="onClose()">
         <div id="mdiv">
             <div class="mdiv">
@@ -15,6 +15,4 @@
         <span class="arrow-right"></span>
     </button>
     <p id="lore">{{champion.lore}}</p>
-
-
 </div>

@@ -7,9 +7,10 @@ export class LeagueChampionService {
     champions: Champion[];
     constructor() {
         this.champions = [];
+        this.fetchAllChampions();
     }
 
-    async getAllChampions(): Promise<Champion[]> {
+    async fetchAllChampions(): Promise<void> {
         const global_res = await fetch(
             'http://ddragon.leagueoflegends.com/cdn/12.20.1/data/fr_FR/champion.json'
         );
@@ -52,13 +53,11 @@ export class LeagueChampionService {
                 icon,
                 skins,
                 champ.skins.length - 1,
-                0,
-                false
+                0
             );
             this.champions.push(championObj);
             i++;
         }
-        return this.champions;
     }
 
     changeSkinRight(champion: Champion): void {
@@ -75,5 +74,18 @@ export class LeagueChampionService {
         } else {
             champion.currentSkin = champion.nbSkins;
         }
+    }
+
+    getChampionByName(name: string): Champion {
+        for (let i = 0; i < this.champions.length; i++) {
+            if (this.champions[i].name === name) {
+                return this.champions[i];
+            }
+        }
+        return this.champions[0];
+    }
+
+    getAllChampions(): Champion[] {
+        return this.champions;
     }
 }
