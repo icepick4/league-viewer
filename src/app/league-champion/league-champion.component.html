@@ -1,7 +1,16 @@
 <div class="champion">
-    <h1 id="title">{{champion.name}}</h1>
+    <h1 id="title">{{champion.name | titlecase}}</h1>
     <img id="main-img" [src]="champion.mainImage" alt="champion image">
-    <button>Afficher le lore de {{champion.name}}</button>
-    <p id="lore">{{champion.lore}}</p>
-    <p id="nb-skins">{{champion.name}} a {{champion.nbSkins}} skins !</p>
+    <button (click)="onLoreClick()">Afficher le lore de {{champion.name}}</button>
+    <!--display the lore only if show lore is true-->
+    <div *ngIf="champion.showLore">
+        <p id="lore">{{champion.lore}}</p>
+    </div>
+    <button (click)="onSkinClick()" id="nb-skins">Afficher les {{champion.nbSkins}} skins de {{champion.name}} !
+        ({{champion.nbSkins + 1}} incluant celui par
+        défaut)
+    </button>
+    <div *ngIf="champion.showSkins">
+        <ul *ngFor="let skin of champion.skins">{{skin.name}}</ul>
+    </div>
 </div>

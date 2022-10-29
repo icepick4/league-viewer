@@ -1,0 +1,8 @@
+.champions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6%, 1fr));
+    grid-gap: 1rem;
+    margin: 1rem;
+    //center the grid
+    justify-content: center;
+}

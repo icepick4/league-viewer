@@ -13,6 +13,8 @@ export class Champion {
         public mainImage: string,
         public icon: string,
         public skins: Skin[],
-        public nbSkins: number
+        public nbSkins: number,
+        public showLore: boolean = false,
+        public showSkins: boolean = false
     ) {}
 }

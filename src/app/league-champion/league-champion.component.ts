@@ -8,4 +8,12 @@ import { Champion } from '../models/champion.model';
 export class LeagueChampionComponent implements OnInit {
     @Input() champion!: Champion;
     ngOnInit(): void {}
+
+    onLoreClick(): void {
+        this.champion.showLore = !this.champion.showLore;
+    }
+
+    onSkinClick(): void {
+        this.champion.showSkins = !this.champion.showSkins;
+    }
 }

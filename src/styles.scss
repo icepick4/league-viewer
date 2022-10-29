@@ -4,18 +4,21 @@
 }
 
 .background--custom {
-    background: linear-gradient(90deg, #0641c2, #7dd5f8, #e02276);
+    background: linear-gradient(90deg, #db9ddf, #7df8c5, #e02276);
     background-size: 300% 300%;
     animation: gradient 4s alternate infinite;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+}
+
 @keyframes gradient {
-0% {
-    background-position: 0%;
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
 }
-100% {
-    background-position: 100%;
-}
+
+body {
+    padding: 0;
+    margin: 0;
 }
