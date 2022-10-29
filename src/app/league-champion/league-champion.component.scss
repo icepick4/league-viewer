@@ -1,7 +1,7 @@
 .champion {
     margin: 0 auto;
     width: 50%;
-    padding: 10px 30px;
+    padding: 30px 65px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -41,26 +41,65 @@
 
     p {
         font-weight: 300;
-        font-size: 16px;
-    }
-    .displaying {
-        margin-top: 10px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background: #9bafd9;
-        color: rgb(0, 0, 0);
-        font-weight: bold;
-        font-size: 16px;
-        width: 100%;
-        transition: 0.5s;
-        &:hover {
-            background: #709de4;
-            transition: 0.5s;
-        }
-        cursor: pointer;
+        font-size: 25px;
     }
     transition: all 0.5s;
+}
+
+.arrow-left {
+    width: 25px;
+    height: 25px;
+    border-right: 15px solid #000000;
+    border-bottom: 15px solid #000000;
+    transform: rotate(135deg);
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    display: block;
+    position: absolute;
+    content: "";
+    left: 50%;
+    &:hover {
+        border-right: 15px solid #8bede6;
+        border-bottom: 15px solid #8bede6;
+    }
+}
+
+.arrow-right {
+    width: 25px;
+    height: 25px;
+    border-right: 15px solid #000000;
+    border-bottom: 15px solid #000000;
+    transform: rotate(-45deg);
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    display: block;
+    position: absolute;
+    content: "";
+    right: 50%;
+    &:hover {
+        border-right: 15px solid #8bede6;
+        border-bottom: 15px solid #8bede6;
+    }
+}
+
+#arrow-left {
+    position: absolute;
+    top: 40%;
+    left: 1%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#arrow-right {
+    position: absolute;
+    top: 40%;
+    right: 1%;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
 #mdiv {

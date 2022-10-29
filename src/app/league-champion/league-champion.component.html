@@ -6,19 +6,15 @@
             </div>
         </div>
     </button>
-    <!-- <span id="close" onclick="this.parentNode.parentNode.remove(); return false;">x</span> -->
-    <h1 id="title">{{champion.name | titlecase}}</h1>
-    <img id="main-img" [src]="champion.mainImage" alt="champion image">
-    <button class="displaying" (click)="onLoreClick()">Afficher le lore de {{champion.name}}</button>
-    <div *ngIf="showLore">
-        <p id="lore">{{champion.lore}}</p>
-    </div>
-    <button class="displaying" (click)=" onSkinClick()" id="nb-skins">Afficher les {{champion.nbSkins}} skins de
-        {{champion.name}} !
-        ({{champion.nbSkins + 1}} incluant celui par
-        défaut)
+    <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
+    <button id="arrow-left" (click)="goLeft()">
+        <span class="arrow-left"></span>
     </button>
-    <div *ngIf="showSkins">
-        <ul *ngFor="let skin of champion.skins">{{skin.name}}</ul>
-    </div>
+    <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
+    <button id="arrow-right" (click)="goRight()">
+        <span class="arrow-right"></span>
+    </button>
+    <p id="lore">{{champion.lore}}</p>
+
+
 </div>

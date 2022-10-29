@@ -12,15 +12,23 @@ export class LeagueChampionListComponent implements OnInit {
     constructor(private leagueChampionService: LeagueChampionService) {}
 
     ngOnInit(): void {
-        this.leagueChampionService
-            .getAllChampions()
-            .then((champions: Champion[]) => {
-                this.champions = champions;
-            });
-        this.showChampion = new Champion(0, '', '', '', '', [], 0, false);
+        if (this.leagueChampionService.champions.length === 0) {
+            this.leagueChampionService
+                .getAllChampions()
+                .then((champions: Champion[]) => {
+                    this.champions = champions;
+                });
+        } else {
+            this.champions = this.leagueChampionService.champions;
+        }
+        this.showChampion = new Champion(0, '', '', '', '', [], 0, 0, false);
     }
 
     onChampionClick(id: number): void {
+        //preload the mainImage of the champion
+        const img = new Image();
+        img.src = this.champions[id].mainImage;
+
         this.showChampion = this.champions[id];
         this.showChampion.show = true;
     }

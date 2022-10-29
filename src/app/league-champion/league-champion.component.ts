@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Champion } from '../models/champion.model';
+import { LeagueChampionService } from '../services/league-champion.service';
 @Component({
     selector: 'app-league-champion',
     templateUrl: './league-champion.component.html',
@@ -7,19 +8,24 @@ import { Champion } from '../models/champion.model';
 })
 export class LeagueChampionComponent implements OnInit {
     @Input() champion!: Champion;
-    showLore: boolean = false;
-    showSkins: boolean = false;
+
+    constructor(private leagueChampionService: LeagueChampionService) {}
 
     ngOnInit(): void {}
 
-    onLoreClick(): void {
-        this.showLore = !this.showLore;
-    }
-    onSkinClick(): void {
-        this.showSkins = !this.showSkins;
-    }
-
     onClose(): void {
         this.champion.show = false;
+    }
+
+    displayTheChampion(): void {
+        this.champion.show = true;
+    }
+
+    goRight(): void {
+        this.leagueChampionService.changeSkinRight(this.champion);
+    }
+
+    goLeft(): void {
+        this.leagueChampionService.changeSkinLeft(this.champion);
     }
 }
