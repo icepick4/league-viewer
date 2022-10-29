@@ -1,16 +1,24 @@
-<div class="champion">
+<div class="champion background--custom-champ">
+    <button id="close" (click)="onClose()">
+        <div id="mdiv">
+            <div class="mdiv">
+                <div class="md"></div>
+            </div>
+        </div>
+    </button>
+    <!-- <span id="close" onclick="this.parentNode.parentNode.remove(); return false;">x</span> -->
     <h1 id="title">{{champion.name | titlecase}}</h1>
     <img id="main-img" [src]="champion.mainImage" alt="champion image">
-    <button (click)="onLoreClick()">Afficher le lore de {{champion.name}}</button>
-    <!--display the lore only if show lore is true-->
-    <div *ngIf="champion.showLore">
+    <button class="displaying" (click)="onLoreClick()">Afficher le lore de {{champion.name}}</button>
+    <div *ngIf="showLore">
         <p id="lore">{{champion.lore}}</p>
     </div>
-    <button (click)="onSkinClick()" id="nb-skins">Afficher les {{champion.nbSkins}} skins de {{champion.name}} !
+    <button class="displaying" (click)=" onSkinClick()" id="nb-skins">Afficher les {{champion.nbSkins}} skins de
+        {{champion.name}} !
         ({{champion.nbSkins + 1}} incluant celui par
         défaut)
     </button>
-    <div *ngIf="champion.showSkins">
+    <div *ngIf="showSkins">
         <ul *ngFor="let skin of champion.skins">{{skin.name}}</ul>
     </div>
 </div>

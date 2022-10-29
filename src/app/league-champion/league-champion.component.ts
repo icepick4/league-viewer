@@ -7,13 +7,19 @@ import { Champion } from '../models/champion.model';
 })
 export class LeagueChampionComponent implements OnInit {
     @Input() champion!: Champion;
+    showLore: boolean = false;
+    showSkins: boolean = false;
+
     ngOnInit(): void {}
 
     onLoreClick(): void {
-        this.champion.showLore = !this.champion.showLore;
+        this.showLore = !this.showLore;
+    }
+    onSkinClick(): void {
+        this.showSkins = !this.showSkins;
     }
 
-    onSkinClick(): void {
-        this.champion.showSkins = !this.champion.showSkins;
+    onClose(): void {
+        this.champion.show = false;
     }
 }

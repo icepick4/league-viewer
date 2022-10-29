@@ -13,3 +13,26 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     height: 4rem;
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    max-width: 1200px;
+}
+
+a {
+    margin: 0 30px;
+    color: #333;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.active {
+    color: #666;
+    text-decoration: underline;
+    font-size: 1.2em;
+}
