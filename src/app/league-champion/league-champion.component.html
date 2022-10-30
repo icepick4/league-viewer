@@ -1,11 +1,15 @@
-<div *ngIf="champion" class="champion background--custom-champ">
-    <button id="close" (click)="onClose()">
+<div *ngIf="champion && !loaded">
+    <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
+    <app-loading-champion [imagesLoaded]="imagesLoaded" [totalImages]="champion.skins.length"></app-loading-champion>
+</div>
+<div *ngIf="loaded && champion" class="champion background--custom-champ">
+    <a routerLink="/champions" id="close">
         <div id="mdiv">
             <div class="mdiv">
                 <div class="md"></div>
             </div>
         </div>
-    </button>
+    </a>
     <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
     <button id="arrow-left" (click)="goLeft()">
         <span class="arrow-left"></span>

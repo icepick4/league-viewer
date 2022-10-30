@@ -9,13 +9,14 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LeagueChampionComponent implements OnInit {
     champion!: Champion | null;
-
+    imagesLoaded: number = 0;
+    loaded: boolean = false;
     constructor(
         private leagueChampionService: LeagueChampionService,
-        private route: ActivatedRoute,
-        private router: Router
+        router: Router,
+        private route: ActivatedRoute
     ) {
-        router.events.subscribe(() => {
+        router.events.subscribe(async () => {
             if (router.url === '/champions') {
                 this.champion = null;
             } else {
@@ -26,11 +27,16 @@ export class LeagueChampionComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {}
-
-    onClose(): void {
-        this.router.navigateByUrl('/champions');
+    loading() {
+        this.imagesLoaded++;
+        let numberSkins = 0;
+        numberSkins = Math.floor(this.champion!.skins.length / 1);
+        if (numberSkins == this.imagesLoaded) {
+            this.loaded = true;
+        }
     }
+
+    ngOnInit(): void {}
 
     goRight(): void {
         if (this.champion) {

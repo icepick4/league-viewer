@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 @Component({
@@ -11,7 +11,6 @@ export class LeagueChampionListComponent implements OnInit {
     champions!: Champion[];
     constructor(
         private leagueChampionService: LeagueChampionService,
-        private route: ActivatedRoute,
         private router: Router
     ) {}
 

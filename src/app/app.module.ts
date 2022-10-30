@@ -8,6 +8,7 @@ import { LeagueChampionListComponent } from './league-champion-list/league-champ
 import { LeagueChampionComponent } from './league-champion/league-champion.component';
 import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         LeagueChampionListComponent,
         HeaderComponent,
         LandingPageComponent,
+        LoadingChampionComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

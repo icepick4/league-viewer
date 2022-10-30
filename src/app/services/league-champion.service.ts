@@ -6,20 +6,23 @@ import { Champion } from '../models/champion.model';
 export class LeagueChampionService {
     champions: Champion[];
     constructor() {
+        console.log('LeagueChampionService constructor');
         this.champions = [];
         this.fetchAllChampions();
     }
 
-    async fetchAllChampions(): Promise<void> {
+    async fetchAllChampions(): Promise<boolean> {
+        console.log('fetchAllChampions');
+        this.champions = [];
         const global_res = await fetch(
-            'http://ddragon.leagueoflegends.com/cdn/12.20.1/data/fr_FR/champion.json'
+            'http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion.json'
         );
         const data = await global_res.json();
         const fetched_champions = data.data;
         let i = 0;
         for (const champion in fetched_champions) {
             const champ_res = await fetch(
-                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/fr_FR/champion/${fetched_champions[champion].id}.json`
+                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion/${fetched_champions[champion].id}.json`
             );
             const champ_data = await champ_res.json();
             const champ = champ_data.data[fetched_champions[champion].id];
@@ -58,6 +61,7 @@ export class LeagueChampionService {
             this.champions.push(championObj);
             i++;
         }
+        return true;
     }
 
     changeSkinRight(champion: Champion): void {
@@ -76,13 +80,13 @@ export class LeagueChampionService {
         }
     }
 
-    getChampionByName(name: string): Champion {
-        for (let i = 0; i < this.champions.length; i++) {
-            if (this.champions[i].name === name) {
-                return this.champions[i];
+    getChampionByName(name: string): Champion | null {
+        for (let champion in this.champions) {
+            if (this.champions[champion].name == name) {
+                return this.champions[champion];
             }
         }
-        return this.champions[0];
+        return null;
     }
 
     getAllChampions(): Champion[] {
