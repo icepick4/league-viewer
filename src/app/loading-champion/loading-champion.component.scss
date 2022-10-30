@@ -1,12 +1,13 @@
 p {
     color: rgb(176, 59, 226);
     position: fixed;
-    top: 53%;
-    left: 96%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 20%);
     font-size: 3rem;
     font-weight: 400;
-    width: 100%;
+    width: 150%;
 }
 
 .champion {
@@ -14,8 +15,8 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     border-radius: 6px;
 }
 
@@ -25,17 +26,17 @@ p {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
+    width: 215px;
+    height: 215px;
 }
 .lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     margin: 8px;
-    border: 15px solid #cef;
+    border: 10px solid #cef;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: rgb(176, 59, 226) transparent transparent transparent;

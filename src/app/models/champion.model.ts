@@ -5,6 +5,11 @@ export type Skin = {
     chromas: boolean;
 };
 
+export type Language = {
+    name: string;
+    code: string;
+};
+
 export class Champion {
     constructor(
         public id: number,

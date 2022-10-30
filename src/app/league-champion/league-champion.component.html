@@ -1,5 +1,6 @@
 <div *ngIf="champion && !loaded">
-    <app-loading-champion [imagesLoaded]="imagesLoaded" [totalImages]="champion.skins.length"></app-loading-champion>
+    <app-loading-champion [imagesLoaded]="purcentage" [totalImages]="champion.skins.length">
+    </app-loading-champion>
     <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
 </div>
 <div *ngIf="loaded && champion" class="champion background--custom-champ">

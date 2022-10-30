@@ -9,6 +9,7 @@ import { LeagueChampionComponent } from './league-champion/league-champion.compo
 import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
+import { LanguageComponent } from './language/language.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { LoadingChampionComponent } from './loading-champion/loading-champion.co
         HeaderComponent,
         LandingPageComponent,
         LoadingChampionComponent,
+        LanguageComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
