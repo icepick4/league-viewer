@@ -19,6 +19,8 @@ export class LeagueChampionListComponent implements OnInit {
     }
 
     onChampionClick(name: string): void {
-        this.router.navigateByUrl('/champions/' + name);
+        //get the type in url
+        const type = this.router.url.split('/')[2];
+        this.router.navigate([`/champions/${type}/${name}`]);
     }
 }

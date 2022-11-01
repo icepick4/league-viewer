@@ -1,23 +1,28 @@
-<div *ngIf="champion && !loaded">
+<div *ngIf="champion && !loaded && type == 'skins'">
     <app-loading-champion [imagesLoaded]="purcentage" [totalImages]="champion.skins.length">
     </app-loading-champion>
     <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
 </div>
-<div *ngIf="loaded && champion" class="champion background--custom-champ">
-    <a routerLink="/champions" id="close">
+<div *ngIf="loaded && champion && (type != null && type != 'undefined')" class="champion background--custom-champ">
+    <button (click)="close()">
         <div id="mdiv">
             <div class="mdiv">
                 <div class="md"></div>
             </div>
         </div>
-    </a>
-    <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
-    <button id="arrow-left" (click)="goLeft()">
-        <span class="arrow-left"></span>
     </button>
-    <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
-    <button id="arrow-right" (click)="goRight()">
-        <span class="arrow-right"></span>
-    </button>
-    <p id="lore">{{champion.lore}}</p>
+    <div *ngIf="type == 'skins'">
+        <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
+        <button id="arrow-left" (click)="goLeft()">
+            <span class="arrow-left"></span>
+        </button>
+        <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
+        <button id="arrow-right" (click)="goRight()">
+            <span class="arrow-right"></span>
+        </button>
+    </div>
+    <div *ngIf="type == 'lore'">
+        <h1 id="title">{{champion.name | titlecase}}</h1>
+        <p id="lore">{{champion.lore}}</p>
+    </div>
 </div>

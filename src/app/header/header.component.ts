@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+    displaySubmenu: boolean = false;
+    constructor(private router: Router) {
+        this.router.events.subscribe(async () => {
+            if (router.url.includes('champions')) {
+                this.displaySubmenu = true;
+            } else {
+                this.displaySubmenu = false;
+            }
+        });
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

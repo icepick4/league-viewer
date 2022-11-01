@@ -14,7 +14,11 @@ const routes: Routes = [
         component: LandingPageComponent,
     },
     {
-        path: 'champions/:name',
+        path: 'champions/:type',
+        component: LeagueChampionListComponent,
+    },
+    {
+        path: 'champions/:type/:name',
         component: LeagueChampionListComponent,
     },
     {
