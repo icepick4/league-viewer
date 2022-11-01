@@ -93,7 +93,7 @@ export class LeagueChampionService {
     }
 
     changeSkinRight(champion: Champion): void {
-        if (champion.currentSkin < champion.skins.length) {
+        if (champion.currentSkin < champion.skins.length - 1) {
             champion.currentSkin++;
         } else {
             champion.currentSkin = 0;
@@ -104,7 +104,7 @@ export class LeagueChampionService {
         if (champion.currentSkin > 0) {
             champion.currentSkin--;
         } else {
-            champion.currentSkin = champion.skins.length;
+            champion.currentSkin = champion.skins.length - 1;
         }
     }
 
