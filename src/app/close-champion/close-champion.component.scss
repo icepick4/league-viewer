@@ -1,0 +1,39 @@
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 1%;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px;
+    &:hover {
+        #mdiv {
+            transform: scale(1.3);
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.mdiv {
+    height: 40px;
+    width: 5px;
+    margin-left: 12px;
+    background-color: black;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+.md {
+    height: 40px;
+    width: 5px;
+    background-color: black;
+    transform: rotate(90deg);
+    z-index: 2;
+}
+
+#mdiv {
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
