@@ -1,0 +1,12 @@
+select {
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 17px;
+    font-size: 1.2em;
+    //place it to the right of the nav
+    position: absolute;
+    right: 0;
+    top: 0;
+}

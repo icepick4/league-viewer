@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 @Component({
@@ -12,7 +12,8 @@ export class LeagueChampionListComponent implements OnInit {
     selectedChampion: string | null = null;
     constructor(
         private leagueChampionService: LeagueChampionService,
-        private router: Router
+        private router: Router,
+        private activatedRoute: ActivatedRoute
     ) {
         router.events.subscribe(async () => {
             if (
@@ -23,19 +24,20 @@ export class LeagueChampionListComponent implements OnInit {
             ) {
                 this.selectedChampion = null;
             } else {
-                this.selectedChampion = this.router.url.split('/')[3];
+                this.selectedChampion = this.router.url.split('/')[4];
             }
         });
     }
 
     ngOnInit(): void {
         this.champions = this.leagueChampionService.getAllChampions();
+        this.selectedChampion = this.router.url.split('/')[4];
     }
 
     onChampionClick(name: string): void {
-        //get the type in url
-        const type = this.router.url.split('/')[2];
-        this.selectedChampion = name;
-        this.router.navigate([`/champions/${type}/${name}`]);
+        //get the param type in url
+        const type = this.activatedRoute.snapshot.params['type'];
+        const lang = this.activatedRoute.snapshot.params['lang'];
+        this.router.navigate([`/${lang}/champions/${type}/${name}`]);
     }
 }

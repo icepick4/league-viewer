@@ -7,26 +7,27 @@ import { Language } from '../models/language.model';
 export class LeagueChampionService {
     champions: Champion[];
     languages: Language[];
+    language: Language = { name: 'English', code: 'en_US' };
     constructor() {
         console.log('LeagueChampionService constructor');
         this.champions = [];
         this.languages = [];
         this.fetchAllLanguages();
-        this.fetchAllChampions();
+        this.fetchAllChampions(this.language.code);
     }
 
-    async fetchAllChampions(): Promise<void> {
+    async fetchAllChampions(language: string): Promise<void> {
         console.log('fetchAllChampions');
         this.champions = [];
         const global_res = await fetch(
-            'http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion.json'
+            `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion.json`
         );
         const data = await global_res.json();
         const fetched_champions = data.data;
         let i = 0;
         for (const champion in fetched_champions) {
             const champ_res = await fetch(
-                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion/${fetched_champions[champion].id}.json`
+                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion/${fetched_champions[champion].id}.json`
             );
             const champ_data = await champ_res.json();
             const champ = champ_data.data[fetched_champions[champion].id];
@@ -90,6 +91,11 @@ export class LeagueChampionService {
 
     getAllLanguages(): Language[] {
         return this.languages;
+    }
+
+    changeLanguage(language: Language): void {
+        this.fetchAllChampions(language.code);
+        this.language = language;
     }
 
     changeSkinRight(champion: Champion): void {

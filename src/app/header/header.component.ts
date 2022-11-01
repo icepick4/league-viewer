@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
     displaySubmenu: boolean = false;
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private activatedRoute: ActivatedRoute
+    ) {
         this.router.events.subscribe(async () => {
             if (router.url.includes('champions')) {
                 this.displaySubmenu = true;
@@ -19,4 +22,30 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {}
+
+    navigateToLore(): void {
+        const lang = this.activatedRoute.snapshot.params['lang'];
+        const name = this.activatedRoute.snapshot.params['name'];
+        this.router.navigateByUrl(`/${lang}/champions/lore`);
+    }
+
+    navigateToSkins(): void {
+        const lang = this.activatedRoute.snapshot.params['lang'];
+        this.router.navigateByUrl(`/${lang}/champions/skins`);
+    }
+
+    navigateToAll(): void {
+        const lang = this.activatedRoute.snapshot.params['lang'];
+        this.router.navigateByUrl(`/${lang}/champions/all`);
+    }
+
+    navigateToChampions(): void {
+        const lang = this.activatedRoute.snapshot.params['lang'];
+        this.router.navigateByUrl(`/${lang}/champions`);
+    }
+
+    navigateToHome(): void {
+        const lang = this.activatedRoute.snapshot.params['lang'];
+        this.router.navigateByUrl(`/${lang}`);
+    }
 }
