@@ -34,6 +34,9 @@ export class LeagueChampionComponent implements OnInit {
                 this.ngOnInit();
                 this.champion =
                     this.leagueChampionService.getChampionByName(name);
+                if (this.champion) {
+                    this.champion.currentSkin = 0;
+                }
             }
         });
     }

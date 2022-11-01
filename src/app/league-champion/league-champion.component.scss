@@ -13,9 +13,15 @@
         text-align: center;
     }
     #main-img {
-        width: 100%;
-        height: 100%;
+        max-width: 80%;
+        max-height: 80%;
         border-radius: 20px;
+        object-fit: contain;
+        //center image
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
     }
     #close {
         position: absolute;
@@ -42,7 +48,7 @@
     #lore {
         font-weight: 300;
         //responsive font size with vw and vh
-        font-size: 1.3vw;
+        font-size: 1.1vw;
         line-height: 1.2;
         margin: 0 auto;
         width: 100%;
@@ -50,15 +56,16 @@
         padding: 0 10px;
         overflow: auto;
         text-align: justify;
+        margin-bottom: 1.5rem;
     }
     transition: all 0.5s;
 }
 
 .arrow-left {
-    width: 1.2vw;
-    height: 1.2vw;
-    border-right: 1vw solid #000000;
-    border-bottom: 1vw solid #000000;
+    width: 1vw;
+    height: 1vw;
+    border-right: 0.8vw solid #000000;
+    border-bottom: 0.8vw solid #000000;
     transform: rotate(135deg);
     margin: 0 6px;
     transition: all 0.3s ease;
@@ -67,16 +74,16 @@
     content: "";
     left: 50%;
     &:hover {
-        border-right: 1vw solid #8bede6;
-        border-bottom: 1vw solid #8bede6;
+        border-right: 0.8vw solid #8bede6;
+        border-bottom: 0.8vw solid #8bede6;
     }
 }
 
 .arrow-right {
-    width: 1.2vw;
-    height: 1.2vw;
-    border-right: 1vw solid #000000;
-    border-bottom: 1vw solid #000000;
+    width: 1vw;
+    height: 1vw;
+    border-right: 0.8vw solid #000000;
+    border-bottom: 0.8vw solid #000000;
     transform: rotate(-45deg);
     margin: 0 6px;
     transition: all 0.3s ease;
@@ -85,15 +92,15 @@
     content: "";
     right: 50%;
     &:hover {
-        border-right: 1vw solid #8bede6;
-        border-bottom: 1vw solid #8bede6;
+        border-right: 0.8vw solid #8bede6;
+        border-bottom: 0.8vw solid #8bede6;
     }
 }
 
 #arrow-left {
     position: absolute;
-    top: 40%;
-    left: 1%;
+    top: 50%;
+    left: 0%;
     transform: translate(-50%, -50%);
     cursor: pointer;
     background: none;
@@ -102,12 +109,34 @@
 
 #arrow-right {
     position: absolute;
-    top: 40%;
-    right: 1%;
+    top: 50%;
+    right: 0%;
     transform: translate(50%, -50%);
     cursor: pointer;
     background: none;
     border: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px;
+    &:hover {
+        .mdiv {
+            opacity: 1;
+            visibility: visible;
+        }
+        .md {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
 }
 
 #mdiv {

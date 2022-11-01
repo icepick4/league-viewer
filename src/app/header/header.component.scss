@@ -1,7 +1,7 @@
 h1 {
     text-align: center;
     //responsive font size
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
     background-color: #bee076;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    height: 4rem;
+    height: 5.5rem;
 }
 
 nav {
@@ -20,7 +20,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
 }
 
 .links {
@@ -30,6 +30,7 @@ nav {
     &:hover {
         text-decoration: underline;
     }
+    font-size: 1.2rem;
 }
 
 a {
@@ -40,11 +41,11 @@ a {
 .active {
     color: rgb(51, 144, 224);
     text-decoration: underline;
-    font-size: 1.35em;
+    font-size: 1.6em;
 }
 
 .sub-active {
     color: rgb(148, 100, 216);
     text-decoration: underline;
-    font-size: 1.15em;
+    font-size: 1.25em;
 }
