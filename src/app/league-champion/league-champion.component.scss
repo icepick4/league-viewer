@@ -1,7 +1,7 @@
 .champion {
     margin: 0 auto;
     width: 40%;
-    padding: 10px 65px;
+    padding: 10px 65px 10px 10px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -12,69 +12,5 @@
         font-weight: bold;
         text-align: center;
     }
-    #main-img {
-        max-width: 80%;
-        max-height: 80%;
-        border-radius: 20px;
-        object-fit: contain;
-        //center image
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1rem;
-    }
     transition: all 0.5s;
-}
-
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 10px;
-    &:hover {
-        .mdiv {
-            opacity: 1;
-            visibility: visible;
-        }
-        .md {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-}
-
-#mdiv {
-    width: 25px;
-    height: 25px;
-    background-color: rgb(217, 35, 35);
-    border: 1px solid black;
-    border-radius: 50%;
-}
-
-.mdiv {
-    height: 25px;
-    width: 1px;
-    margin-left: 12px;
-    background-color: black;
-    transform: rotate(45deg);
-    z-index: 1;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s, opacity 0.2s ease;
-}
-
-.md {
-    height: 25px;
-    width: 1px;
-    background-color: black;
-    transform: rotate(90deg);
-    z-index: 2;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s, opacity 0.2s ease;
 }

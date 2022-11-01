@@ -1,16 +1,14 @@
-<div *ngIf="champion && (type != null && type != 'undefined')" class="champion background--custom-champ">
-    <button (click)="close()">
-        <div id="mdiv">
-            <div class="mdiv">
-                <div class="md"></div>
-            </div>
-        </div>
-    </button>
-    <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
-    <div *ngIf="type == 'skins' || type == 'all'">
-        <app-league-champion-skins [champion]="champion"></app-league-champion-skins>
+<div *ngIf="champion && (type != null && type != 'undefined')" class="champion"
+    [ngClass]="champion.loaded ? 'background--custom-champ' : ''">
+    <div *ngIf="champion.loaded">
+        <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
+        <app-close-champion></app-close-champion>
     </div>
-    <div *ngIf="type == 'lore' || type == 'all'">
+    <div *ngIf="type == 'skins' || type == 'all'">
+        <app-league-champion-skins [champion]="champion">
+        </app-league-champion-skins>
+    </div>
+    <div *ngIf="(type == 'lore' || type == 'all') && champion.loaded || type == 'lore'">
         <app-league-champion-lore [lore]="champion.lore"></app-league-champion-lore>
     </div>
 </div>

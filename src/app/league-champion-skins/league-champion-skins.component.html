@@ -1,13 +1,14 @@
-<div *ngIf="champion && !loaded">
+<div *ngIf="champion && !champion.loaded">
     <app-loading-champion [imagesLoaded]="purcentage" [totalImages]="champion.skins.length">
     </app-loading-champion>
     <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
 </div>
-
-<button id="arrow-left" (click)="goLeft()">
-    <span class="arrow-left"></span>
-</button>
-<img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
-<button id="arrow-right" (click)="goRight()">
-    <span class="arrow-right"></span>
-</button>
+<div *ngIf="champion && champion.loaded">
+    <button id="arrow-left" (click)="goLeft()">
+        <span class="arrow-left"></span>
+    </button>
+    <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
+    <button id="arrow-right" (click)="goRight()">
+        <span class="arrow-right"></span>
+    </button>
+</div>

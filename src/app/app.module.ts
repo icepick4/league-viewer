@@ -12,6 +12,7 @@ import { LoadingChampionComponent } from './loading-champion/loading-champion.co
 import { LanguageComponent } from './language/language.component';
 import { LeagueChampionLoreComponent } from './league-champion-lore/league-champion-lore.component';
 import { LeagueChampionSkinsComponent } from './league-champion-skins/league-champion-skins.component';
+import { CloseChampionComponent } from './close-champion/close-champion.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { LeagueChampionSkinsComponent } from './league-champion-skins/league-cha
         LanguageComponent,
         LeagueChampionLoreComponent,
         LeagueChampionSkinsComponent,
+        CloseChampionComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

@@ -64,7 +64,8 @@ export class LeagueChampionService {
                 icon,
                 skins,
                 champ.skins.length - 1,
-                0
+                0,
+                false
             );
             this.champions.push(championObj);
             i++;

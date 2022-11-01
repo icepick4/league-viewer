@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 
@@ -8,12 +9,22 @@ import { LeagueChampionService } from '../services/league-champion.service';
     styleUrls: ['./league-champion-skins.component.scss'],
 })
 export class LeagueChampionSkinsComponent implements OnInit {
-    @Input() champion!: Champion;
+    @Input() champion!: Champion | null;
     currentSkin: any;
-    loaded!: boolean;
     imagesLoaded: number = 0;
     purcentage!: number;
-    constructor(private leagueChampionService: LeagueChampionService) {}
+    constructor(
+        private leagueChampionService: LeagueChampionService,
+        private router: Router,
+        private activatedRoute: ActivatedRoute
+    ) {
+        this.activatedRoute.params.subscribe((params) => {
+            if (params['name']) {
+                this.imagesLoaded = 0;
+                this.purcentage = 0;
+            }
+        });
+    }
 
     ngOnInit(): void {}
 
@@ -23,7 +34,7 @@ export class LeagueChampionSkinsComponent implements OnInit {
             (this.imagesLoaded * 100) / this.champion!.nbSkins / 1
         );
         if (this.champion?.nbSkins == this.imagesLoaded) {
-            this.loaded = true;
+            this.champion.loaded = true;
         }
     }
 

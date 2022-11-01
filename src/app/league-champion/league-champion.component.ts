@@ -16,24 +16,27 @@ export class LeagueChampionComponent implements OnInit {
         private route: ActivatedRoute
     ) {
         router.events.subscribe(async () => {
-            if (router.url === '/champions') {
+            if (
+                router.url === '/champions' ||
+                router.url === '/champions/all' ||
+                router.url === '/champions/lore' ||
+                router.url === '/champions/skins'
+            ) {
                 this.champion = null;
             } else {
                 const name = this.route.snapshot.params['name'];
                 const type = this.route.snapshot.params['type'];
                 this.type = type;
-                this.ngOnInit();
                 this.champion =
                     this.leagueChampionService.getChampionByName(name);
                 if (this.champion) {
                     this.champion.currentSkin = 0;
+                    if (this.type != 'skins' && this.type != 'all') {
+                        this.champion.loaded = true;
+                    }
                 }
             }
         });
-    }
-
-    close(): void {
-        this.router.navigate([`/champions/${this.type}`]);
     }
 
     ngOnInit(): void {}
