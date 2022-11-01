@@ -4,3 +4,8 @@
     grid-gap: 1rem;
     margin: 1rem;
 }
+
+.selected img {
+    filter: drop-shadow(0 0 2rem #ff0000);
+    transition: all 0.1s ease;
+}

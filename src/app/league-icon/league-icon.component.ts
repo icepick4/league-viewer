@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Champion } from '../models/champion.model';
 
 @Component({
     selector: 'app-league-icon',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./league-icon.component.scss'],
 })
 export class LeagueIconComponent implements OnInit {
-    @Input() icon!: string;
-    @Input() id!: number;
+    @Input() champion!: Champion;
+    @Input() selectedChampion: string | null = null;
     ngOnInit(): void {}
 }

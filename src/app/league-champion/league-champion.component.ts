@@ -25,8 +25,7 @@ export class LeagueChampionComponent implements OnInit {
                 this.champion = null;
             } else {
                 const name = this.route.snapshot.params['name'];
-                const type = this.route.snapshot.params['type'];
-                this.type = type;
+                this.type = this.route.snapshot.params['type'];
                 this.champion =
                     this.leagueChampionService.getChampionByName(name);
                 if (this.champion) {

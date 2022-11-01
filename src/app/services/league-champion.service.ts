@@ -63,7 +63,6 @@ export class LeagueChampionService {
                 mainImage,
                 icon,
                 skins,
-                champ.skins.length - 1,
                 0,
                 false
             );
@@ -78,7 +77,6 @@ export class LeagueChampionService {
         );
         let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
         const data = await global_res.json();
-        console.log(data);
         for (const language of data) {
             const regionCode = language.slice(-2);
             const name = regionNames.of(regionCode);
@@ -95,7 +93,7 @@ export class LeagueChampionService {
     }
 
     changeSkinRight(champion: Champion): void {
-        if (champion.currentSkin < champion.nbSkins) {
+        if (champion.currentSkin < champion.skins.length) {
             champion.currentSkin++;
         } else {
             champion.currentSkin = 0;
@@ -106,7 +104,7 @@ export class LeagueChampionService {
         if (champion.currentSkin > 0) {
             champion.currentSkin--;
         } else {
-            champion.currentSkin = champion.nbSkins;
+            champion.currentSkin = champion.skins.length;
         }
     }
 

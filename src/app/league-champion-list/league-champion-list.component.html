@@ -1,5 +1,5 @@
 <div class="champions">
-    <app-league-icon *ngFor="let champion of champions" [icon]="champion.icon" [id]="champion.id"
+    <app-league-icon *ngFor="let champion of champions" [champion]="champion" [selectedChampion]="selectedChampion"
         (click)="onChampionClick(champion.name)">
     </app-league-icon>
     <app-league-champion></app-league-champion>

@@ -31,9 +31,9 @@ export class LeagueChampionSkinsComponent implements OnInit {
     loading() {
         this.imagesLoaded++;
         this.purcentage = Math.round(
-            (this.imagesLoaded * 100) / this.champion!.nbSkins / 1
+            (this.imagesLoaded * 100) / this.champion!.skins.length / 1
         );
-        if (this.champion?.nbSkins == this.imagesLoaded) {
+        if (this.champion?.skins.length == this.imagesLoaded) {
             this.champion.loaded = true;
         }
     }
