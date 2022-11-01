@@ -1,9 +1,4 @@
-<div *ngIf="champion && !loaded && (type == 'skins' || type == 'all')">
-    <app-loading-champion [imagesLoaded]="purcentage" [totalImages]="champion.skins.length">
-    </app-loading-champion>
-    <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
-</div>
-<div *ngIf="loaded && champion && (type != null && type != 'undefined')" class="champion background--custom-champ">
+<div *ngIf="champion && (type != null && type != 'undefined')" class="champion background--custom-champ">
     <button (click)="close()">
         <div id="mdiv">
             <div class="mdiv">
@@ -13,16 +8,9 @@
     </button>
     <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
     <div *ngIf="type == 'skins' || type == 'all'">
-        <button id="arrow-left" (click)="goLeft()">
-            <span class="arrow-left"></span>
-        </button>
-        <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
-        <button id="arrow-right" (click)="goRight()">
-            <span class="arrow-right"></span>
-        </button>
-
+        <app-league-champion-skins [champion]="champion"></app-league-champion-skins>
     </div>
     <div *ngIf="type == 'lore' || type == 'all'">
-        <p id="lore">{{champion.lore}}</p>
+        <app-league-champion-lore [lore]="champion.lore"></app-league-champion-lore>
     </div>
 </div>

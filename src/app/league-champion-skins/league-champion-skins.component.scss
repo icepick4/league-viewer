@@ -1,0 +1,66 @@
+#main-img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    object-fit: contain;
+    //center image
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+.arrow-left {
+    width: 1vw;
+    height: 1vw;
+    border-right: 0.8vw solid #000000;
+    border-bottom: 0.8vw solid #000000;
+    transform: rotate(135deg);
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    display: block;
+    position: absolute;
+    content: "";
+    left: 50%;
+    &:hover {
+        border-right: 0.8vw solid #8bede6;
+        border-bottom: 0.8vw solid #8bede6;
+    }
+}
+
+.arrow-right {
+    width: 1vw;
+    height: 1vw;
+    border-right: 0.8vw solid #000000;
+    border-bottom: 0.8vw solid #000000;
+    transform: rotate(-45deg);
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    display: block;
+    position: absolute;
+    content: "";
+    right: 50%;
+    &:hover {
+        border-right: 0.8vw solid #8bede6;
+        border-bottom: 0.8vw solid #8bede6;
+    }
+}
+
+#arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+    background: none;
+    border: none;
+}

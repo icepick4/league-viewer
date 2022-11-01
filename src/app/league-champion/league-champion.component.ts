@@ -9,9 +9,6 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LeagueChampionComponent implements OnInit {
     champion!: Champion | null;
-    purcentage!: number;
-    imagesLoaded: number = 0;
-    loaded: boolean = false;
     type!: string | null;
     constructor(
         private leagueChampionService: LeagueChampionService,
@@ -25,12 +22,6 @@ export class LeagueChampionComponent implements OnInit {
                 const name = this.route.snapshot.params['name'];
                 const type = this.route.snapshot.params['type'];
                 this.type = type;
-                this.purcentage = 0;
-                this.loaded = false;
-                if (this.type == 'lore') {
-                    this.loaded = true;
-                }
-                this.imagesLoaded = 0;
                 this.ngOnInit();
                 this.champion =
                     this.leagueChampionService.getChampionByName(name);
@@ -41,31 +32,9 @@ export class LeagueChampionComponent implements OnInit {
         });
     }
 
-    loading() {
-        this.imagesLoaded++;
-        this.purcentage = Math.round(
-            (this.imagesLoaded * 100) / this.champion!.nbSkins / 1
-        );
-        if (this.champion?.nbSkins == this.imagesLoaded) {
-            this.loaded = true;
-        }
-    }
-
     close(): void {
         this.router.navigate([`/champions/${this.type}`]);
     }
 
     ngOnInit(): void {}
-
-    goRight(): void {
-        if (this.champion) {
-            this.leagueChampionService.changeSkinRight(this.champion);
-        }
-    }
-
-    goLeft(): void {
-        if (this.champion) {
-            this.leagueChampionService.changeSkinLeft(this.champion);
-        }
-    }
 }

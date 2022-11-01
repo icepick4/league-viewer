@@ -10,6 +10,8 @@ import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
 import { LanguageComponent } from './language/language.component';
+import { LeagueChampionLoreComponent } from './league-champion-lore/league-champion-lore.component';
+import { LeagueChampionSkinsComponent } from './league-champion-skins/league-champion-skins.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +23,8 @@ import { LanguageComponent } from './language/language.component';
         LandingPageComponent,
         LoadingChampionComponent,
         LanguageComponent,
+        LeagueChampionLoreComponent,
+        LeagueChampionSkinsComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
