@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { Language } from '../models/language.model';
 @Injectable({
@@ -8,7 +9,7 @@ export class LeagueChampionService {
     champions: Champion[];
     languages: Language[];
     language: Language = { name: 'English', code: 'en_US' };
-    constructor() {
+    constructor(private router: Router) {
         console.log('LeagueChampionService constructor');
         this.champions = [];
         this.languages = [];
@@ -19,6 +20,7 @@ export class LeagueChampionService {
     async fetchAllChampions(language: string): Promise<void> {
         console.log('fetchAllChampions');
         this.champions = [];
+        let temp_champions = [];
         const global_res = await fetch(
             `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion.json`
         );
@@ -67,9 +69,11 @@ export class LeagueChampionService {
                 0,
                 false
             );
-            this.champions.push(championObj);
+            temp_champions.push(championObj);
             i++;
         }
+        this.router.navigateByUrl('/');
+        this.champions = temp_champions;
     }
 
     async fetchAllLanguages(): Promise<void> {

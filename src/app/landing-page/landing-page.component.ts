@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Language } from '../models/language.model';
+import { LeagueChampionService } from '../services/league-champion.service';
 
 @Component({
     selector: 'app-landing-page',
@@ -6,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-    constructor() {}
+    languageCharged!: Language;
+    constructor(private leagueChampionService: LeagueChampionService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.languageCharged = this.leagueChampionService.language;
+    }
 }

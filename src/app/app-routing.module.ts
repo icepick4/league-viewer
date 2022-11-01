@@ -5,19 +5,19 @@ import { LeagueChampionListComponent } from './league-champion-list/league-champ
 
 const routes: Routes = [
     {
-        path: ':lang/champions',
+        path: 'champions',
         component: LeagueChampionListComponent,
     },
     {
-        path: ':lang',
+        path: '',
         component: LandingPageComponent,
     },
     {
-        path: ':lang/champions/:type',
+        path: 'champions/:type',
         component: LeagueChampionListComponent,
     },
     {
-        path: ':lang/champions/:type/:name',
+        path: 'champions/:type/:name',
         component: LeagueChampionListComponent,
     },
 ];

@@ -24,20 +24,19 @@ export class LeagueChampionListComponent implements OnInit {
             ) {
                 this.selectedChampion = null;
             } else {
-                this.selectedChampion = this.router.url.split('/')[4];
+                this.selectedChampion = this.router.url.split('/')[3];
             }
         });
     }
 
     ngOnInit(): void {
         this.champions = this.leagueChampionService.getAllChampions();
-        this.selectedChampion = this.router.url.split('/')[4];
+        this.selectedChampion = this.router.url.split('/')[3];
     }
 
     onChampionClick(name: string): void {
         //get the param type in url
         const type = this.activatedRoute.snapshot.params['type'];
-        const lang = this.activatedRoute.snapshot.params['lang'];
-        this.router.navigate([`/${lang}/champions/${type}/${name}`]);
+        this.router.navigate([`/champions/${type}/${name}`]);
     }
 }

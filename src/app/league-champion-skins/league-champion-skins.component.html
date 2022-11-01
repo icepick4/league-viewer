@@ -1,5 +1,5 @@
 <div *ngIf="champion && !champion.loaded">
-    <app-loading-champion [imagesLoaded]="purcentage" [totalImages]="champion.skins.length">
+    <app-loading-champion [purcentage]="''+purcentage+'%'">
     </app-loading-champion>
     <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
 </div>

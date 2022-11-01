@@ -16,3 +16,11 @@
     height: auto;
     //background image
 }
+
+#lang {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+}

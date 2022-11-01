@@ -1,16 +1,15 @@
 <header>
     <nav>
-        <button (click)="navigateToHome()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"
-            class="links">Home</button>
-        <button (click)="navigateToHome()">
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" class="links">Home</a>
+        <a routerLink="">
             <h1>League Viewer</h1>
-        </button>
-        <button (click)="navigateToChampions()" routerLinkActive="active" class="links">Champions</button>
+        </a>
+        <a routerLink="champions" routerLinkActive="active" class="links">Champions</a>
         <div *ngIf="displaySubmenu">
-            <button (click)="navigateToLore()" routerLinkActive="sub-active" class="links">Lore</button>
-            <button (click)="navigateToSkins()" routerLinkActive="sub-active" class="links">Skins</button>
-            <button (click)="navigateToAll()" routerLinkActive="sub-active" class="links">All</button>
+            <a routerLink="champions/lore" routerLinkActive="sub-active" class="links">Lore</a>
+            <a routerLink="champions/skins" routerLinkActive="sub-active" class="links">Skins</a>
+            <a routerLink="champions/all" routerLinkActive="sub-active" class="links">All</a>
+            <app-language></app-language>
         </div>
-        <app-language></app-language>
     </nav>
 </header>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { LeagueChampionService } from '../services/league-champion.service';
 
 @Component({
     selector: 'app-header',
@@ -8,12 +9,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
     displaySubmenu: boolean = false;
+    displayLanguages: boolean = false;
     constructor(
         private router: Router,
-        private activatedRoute: ActivatedRoute
+        private leagueChampionService: LeagueChampionService
     ) {
         this.router.events.subscribe(async () => {
-            if (router.url.includes('champions')) {
+            if (
+                router.url.includes('champions') ||
+                router.url.includes('lore') ||
+                router.url.includes('skins') ||
+                router.url.includes('all')
+            ) {
                 this.displaySubmenu = true;
             } else {
                 this.displaySubmenu = false;
@@ -22,30 +29,4 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {}
-
-    navigateToLore(): void {
-        const lang = this.activatedRoute.snapshot.params['lang'];
-        const name = this.activatedRoute.snapshot.params['name'];
-        this.router.navigateByUrl(`/${lang}/champions/lore`);
-    }
-
-    navigateToSkins(): void {
-        const lang = this.activatedRoute.snapshot.params['lang'];
-        this.router.navigateByUrl(`/${lang}/champions/skins`);
-    }
-
-    navigateToAll(): void {
-        const lang = this.activatedRoute.snapshot.params['lang'];
-        this.router.navigateByUrl(`/${lang}/champions/all`);
-    }
-
-    navigateToChampions(): void {
-        const lang = this.activatedRoute.snapshot.params['lang'];
-        this.router.navigateByUrl(`/${lang}/champions`);
-    }
-
-    navigateToHome(): void {
-        const lang = this.activatedRoute.snapshot.params['lang'];
-        this.router.navigateByUrl(`/${lang}`);
-    }
 }

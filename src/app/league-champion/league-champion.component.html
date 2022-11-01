@@ -1,5 +1,4 @@
-<div *ngIf="champion && (type != null && type != 'undefined')" class="champion"
-    [ngClass]="champion.loaded ? 'background--custom-champ' : ''">
+<div *ngIf="champion" class="champion" [ngClass]="champion.loaded ? 'background--custom-champ' : ''">
     <div *ngIf="champion.loaded">
         <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
         <app-close-champion></app-close-champion>
