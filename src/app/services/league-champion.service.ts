@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { Language } from '../models/language.model';
 @Injectable({
@@ -7,26 +8,31 @@ import { Language } from '../models/language.model';
 export class LeagueChampionService {
     champions: Champion[];
     languages: Language[];
-    constructor() {
-        console.log('LeagueChampionService constructor');
+    language: Language = { name: 'English', code: 'en_US', charged: true };
+    purcentage: number = 0;
+    constructor(private router: Router) {
         this.champions = [];
         this.languages = [];
         this.fetchAllLanguages();
-        this.fetchAllChampions();
+        this.fetchAllChampions(this.language.code);
     }
 
-    async fetchAllChampions(): Promise<void> {
+    async fetchAllChampions(language: string): Promise<void> {
         console.log('fetchAllChampions');
         this.champions = [];
+        let temp_champions = [];
         const global_res = await fetch(
-            'http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion.json'
+            `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion.json`
         );
         const data = await global_res.json();
         const fetched_champions = data.data;
         let i = 0;
         for (const champion in fetched_champions) {
+            this.purcentage = Math.round(
+                (i / Object.keys(fetched_champions).length) * 100
+            );
             const champ_res = await fetch(
-                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/en_US/champion/${fetched_champions[champion].id}.json`
+                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion/${fetched_champions[champion].id}.json`
             );
             const champ_data = await champ_res.json();
             const champ = champ_data.data[fetched_champions[champion].id];
@@ -66,9 +72,12 @@ export class LeagueChampionService {
                 0,
                 false
             );
-            this.champions.push(championObj);
+            temp_champions.push(championObj);
             i++;
         }
+        this.router.navigateByUrl('/');
+        this.language.charged = true;
+        this.champions = temp_champions;
     }
 
     async fetchAllLanguages(): Promise<void> {
@@ -82,14 +91,28 @@ export class LeagueChampionService {
             const name = regionNames.of(regionCode);
             const code = language;
             if (name != undefined) {
-                const languageObject: Language = { name: name, code: code };
-                this.languages.push(languageObject);
+                const languageObject: Language = {
+                    name: name,
+                    code: code,
+                    charged: false,
+                };
+                if (languageObject.code != 'id_ID') {
+                    this.languages.push(languageObject);
+                }
             }
         }
     }
 
     getAllLanguages(): Language[] {
         return this.languages;
+    }
+
+    changeLanguage(language: string): void {
+        console.log(language);
+        this.fetchAllChampions(language);
+        this.language = this.languages.find(
+            (lang) => lang.code == language
+        ) as Language;
     }
 
     changeSkinRight(champion: Champion): void {

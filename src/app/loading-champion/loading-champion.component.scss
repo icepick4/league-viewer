@@ -15,16 +15,17 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     border-radius: 6px;
+    z-index: 1000;
 }
 
 .lds-ring {
     display: inline-block;
     position: fixed;
-    top: 40%;
-    left: 50%;
+    top: 33%;
+    left: 42%;
     transform: translate(-50%, -50%);
     width: 215px;
     height: 215px;
@@ -33,12 +34,12 @@ p {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     margin: 8px;
-    border: 10px solid #cef;
+    border: 20px solid #cef;
     border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    animation: lds-ring 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: rgb(176, 59, 226) transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {

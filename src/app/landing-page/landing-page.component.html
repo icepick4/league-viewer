@@ -1,3 +1,7 @@
 <div class="landing-block">
     <img id="main-image" src="assets/landing-page.png" alt="landing page">
 </div>
+<div *ngIf="languageCharged" id="lang">
+    <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png" height=" 120"
+        alt={{languageCharged.name}}>
+</div>

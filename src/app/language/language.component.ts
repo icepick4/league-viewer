@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Language } from '../models/language.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 
@@ -9,9 +10,21 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LanguageComponent implements OnInit {
     languages!: Language[];
-    constructor(private leagueChampionService: LeagueChampionService) {}
+    selectLanguage: Language = this.leagueChampionService.language;
+    constructor(
+        private leagueChampionService: LeagueChampionService,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
         this.languages = this.leagueChampionService.getAllLanguages();
+    }
+
+    changeLanguage(event: any): void {
+        this.router.navigate(['/champions']);
+        let lang = event.target.value;
+        this.leagueChampionService.language.charged = false;
+        this.leagueChampionService.changeLanguage(lang);
+        this.selectLanguage = this.leagueChampionService.language;
     }
 }

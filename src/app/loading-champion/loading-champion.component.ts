@@ -6,9 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./loading-champion.component.scss'],
 })
 export class LoadingChampionComponent implements OnInit {
-    @Input() imagesLoaded: number = 0;
-    @Input() totalImages: number = 0;
+    @Input() purcentage: string = '0%';
     constructor() {}
-
     ngOnInit(): void {}
 }
