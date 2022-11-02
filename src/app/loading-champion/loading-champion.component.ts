@@ -8,6 +8,5 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LoadingChampionComponent implements OnInit {
     @Input() purcentage: string = '0%';
     constructor() {}
-
     ngOnInit(): void {}
 }

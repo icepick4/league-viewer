@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LeagueChampionService } from '../services/league-champion.service';
 
 @Component({
     selector: 'app-header',
@@ -10,10 +9,7 @@ import { LeagueChampionService } from '../services/league-champion.service';
 export class HeaderComponent implements OnInit {
     displaySubmenu: boolean = false;
     displayLanguages: boolean = false;
-    constructor(
-        private router: Router,
-        private leagueChampionService: LeagueChampionService
-    ) {
+    constructor(private router: Router) {
         this.router.events.subscribe(async () => {
             if (
                 router.url.includes('champions') ||

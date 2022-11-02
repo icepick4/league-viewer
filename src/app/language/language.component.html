@@ -1,7 +1,7 @@
-<div *ngIf="selectedLanguage" id="loading">
-    <app-loading-champion [purcentage]="selectedLanguage"></app-loading-champion>
-</div>
-
-<select (change)="changeLanguage($event)" [value]="selectedLanguage">
-    <option *ngFor="let lang of languages" [value]="lang.name">{{lang.name}}</option>
+<select (change)="changeLanguage($event)">
+    <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.name == selectLanguage.name">
+        {{lang.name}}</option>
 </select>
+<div *ngIf="!selectLanguage.charged" id="loading">
+    <app-loading-champion [purcentage]="selectLanguage.name"></app-loading-champion>
+</div>

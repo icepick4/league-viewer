@@ -8,9 +8,9 @@ import { Language } from '../models/language.model';
 export class LeagueChampionService {
     champions: Champion[];
     languages: Language[];
-    language: Language = { name: 'English', code: 'en_US' };
+    language: Language = { name: 'English', code: 'en_US', charged: true };
+    purcentage: number = 0;
     constructor(private router: Router) {
-        console.log('LeagueChampionService constructor');
         this.champions = [];
         this.languages = [];
         this.fetchAllLanguages();
@@ -28,6 +28,9 @@ export class LeagueChampionService {
         const fetched_champions = data.data;
         let i = 0;
         for (const champion in fetched_champions) {
+            this.purcentage = Math.round(
+                (i / Object.keys(fetched_champions).length) * 100
+            );
             const champ_res = await fetch(
                 `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion/${fetched_champions[champion].id}.json`
             );
@@ -73,6 +76,7 @@ export class LeagueChampionService {
             i++;
         }
         this.router.navigateByUrl('/');
+        this.language.charged = true;
         this.champions = temp_champions;
     }
 
@@ -87,8 +91,14 @@ export class LeagueChampionService {
             const name = regionNames.of(regionCode);
             const code = language;
             if (name != undefined) {
-                const languageObject: Language = { name: name, code: code };
-                this.languages.push(languageObject);
+                const languageObject: Language = {
+                    name: name,
+                    code: code,
+                    charged: false,
+                };
+                if (languageObject.code != 'id_ID') {
+                    this.languages.push(languageObject);
+                }
             }
         }
     }
@@ -97,9 +107,12 @@ export class LeagueChampionService {
         return this.languages;
     }
 
-    changeLanguage(language: Language): void {
-        this.fetchAllChampions(language.code);
-        this.language = language;
+    changeLanguage(language: string): void {
+        console.log(language);
+        this.fetchAllChampions(language);
+        this.language = this.languages.find(
+            (lang) => lang.code == language
+        ) as Language;
     }
 
     changeSkinRight(champion: Champion): void {
