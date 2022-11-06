@@ -21,8 +21,12 @@ export class LeagueChampionService {
         console.log('fetchAllChampions');
         this.champions = [];
         let temp_champions = [];
+        const version_res = await fetch(
+            'http://ddragon.leagueoflegends.com/api/versions.json'
+        );
+        const version = (await version_res.json())[0];
         const global_res = await fetch(
-            `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion.json`
+            `http://ddragon.leagueoflegends.com/cdn/${version}/data/${language}/champion.json`
         );
         const data = await global_res.json();
         const fetched_champions = data.data;
@@ -32,7 +36,7 @@ export class LeagueChampionService {
                 (i / Object.keys(fetched_champions).length) * 100
             );
             const champ_res = await fetch(
-                `http://ddragon.leagueoflegends.com/cdn/12.20.1/data/${language}/champion/${fetched_champions[champion].id}.json`
+                `http://ddragon.leagueoflegends.com/cdn/${version}/data/${language}/champion/${fetched_champions[champion].id}.json`
             );
             const champ_data = await champ_res.json();
             const champ = champ_data.data[fetched_champions[champion].id];
@@ -59,7 +63,7 @@ export class LeagueChampionService {
                 champ.id +
                 '_0.jpg';
             const icon =
-                'http://ddragon.leagueoflegends.com/cdn/12.20.1/img/champion/' +
+                `http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/` +
                 champ.id +
                 '.png';
             let championObj: Champion = new Champion(

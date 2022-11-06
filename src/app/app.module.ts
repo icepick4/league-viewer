@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CloseChampionComponent } from './close-champion/close-champion.component';
 import { HeaderComponent } from './header/header.component';
+import { InfosComponent } from './infos/infos.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LanguageComponent } from './language/language.component';
 import { LeagueChampionListComponent } from './league-champion-list/league-champion-list.component';
@@ -13,8 +14,6 @@ import { LeagueChampionSkinsComponent } from './league-champion-skins/league-cha
 import { LeagueChampionComponent } from './league-champion/league-champion.component';
 import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
-import { InfosComponent } from './infos/infos.component';
-import { LeagueButtonComponent } from './league-button/league-button.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +29,6 @@ import { LeagueButtonComponent } from './league-button/league-button.component';
         LeagueChampionSkinsComponent,
         CloseChampionComponent,
         InfosComponent,
-        LeagueButtonComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

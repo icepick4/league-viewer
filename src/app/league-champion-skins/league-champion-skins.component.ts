@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
 
@@ -11,11 +11,10 @@ import { LeagueChampionService } from '../services/league-champion.service';
 export class LeagueChampionSkinsComponent implements OnInit {
     @Input() champion!: Champion | null;
     currentSkin: any;
-    imagesLoaded: number = 0;
+    imagesLoaded!: number;
     purcentage!: number;
     constructor(
         private leagueChampionService: LeagueChampionService,
-        private router: Router,
         private activatedRoute: ActivatedRoute
     ) {
         this.activatedRoute.params.subscribe((params) => {
@@ -26,7 +25,9 @@ export class LeagueChampionSkinsComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.imagesLoaded = 0;
+    }
 
     loading() {
         this.imagesLoaded++;

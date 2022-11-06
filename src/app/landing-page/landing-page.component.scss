@@ -5,18 +5,18 @@
 
 #main-image {
     //responsive image
-    width: 15%;
+    width: 8%;
     height: auto;
     //center horizontally
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 10rem;
+    margin-top: 3%;
 }
 
 #lang {
     position: absolute;
-    bottom: 6%;
+    bottom: 0%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -28,11 +28,56 @@ img {
 
 .links {
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    height: 16vh;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.link {
+    width: 25rem;
+    height: 25rem;
+    resize: vertical;
+    margin: 100px;
     a {
-        margin-right: 1em;
-        margin-left: 1em;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border: 5px solid rgb(0, 0, 0);
+        border-radius: 5%;
+        z-index: 1000;
+        text-align: center;
+        line-height: 50%;
+        text-decoration: none;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 3%;
+        }
+    }
+
+    p {
+        text-align: center;
+        font-size: 3.5em;
+        margin-top: -50%;
+        transform: translateY(-50%);
+        display: none;
+        cursor: pointer;
+    }
+
+    &:hover {
+        p {
+            color: #fff;
+            display: block;
+        }
+
+        a {
+            border: 5px solid rgb(255, 255, 255);
+            img {
+                filter: grayscale(100%);
+                opacity: 0.4;
+            }
+        }
     }
 }

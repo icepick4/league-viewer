@@ -1,22 +1,43 @@
-<div class="landing-block">
-    <img id="main-image" src="assets/landing-page.png" alt="landing page">
-</div>
-<div *ngIf="languageCharged" id="lang">
-    <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png" height=" 120"
-        alt={{languageCharged.name}}>
-</div>
+<img src="../../assets/landing-page.png" alt="Landing page" id="main-image" />
 
 <div class="links">
-    <a routerLink="champions/">
-        <app-league-button [text]="'Names'"></app-league-button>
-    </a>
-    <a routerLink="champions/lore">
-        <app-league-button [text]="'Lore'"></app-league-button>
-    </a>
-    <a routerLink="champions/skins">
-        <app-league-button [text]="'Skins'"></app-league-button>
-    </a>
-    <a routerLink="champions/all">
-        <app-league-button [text]="'All'"></app-league-button>
-    </a>
+    <div class="link">
+        <a routerLink="champions/">
+            <img src="../../assets/names_bg.png" alt="Champions" />
+            <p>
+                Names
+            </p>
+        </a>
+    </div>
+    <div class="link">
+        <a routerLink="champions/lore">
+            <img src="../../assets/lore_bg.png" alt="Lore" />
+            <p>
+                Lore
+            </p>
+        </a>
+
+    </div>
+    <div class="link">
+        <a routerLink="champions/skins">
+            <img src="../../assets/skins_bg.png" alt="Skins" />
+            <p>
+                Skins
+            </p>
+        </a>
+
+    </div>
+    <div class="link">
+        <a routerLink="champions/all">
+            <img src="../../assets/all_bg.png" alt="All" />
+            <p>
+                All
+            </p>
+        </a>
+    </div>
+</div>
+
+<div *ngIf="languageCharged" id="lang">
+    <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png" height="120"
+        alt={{languageCharged.name}}>
 </div>

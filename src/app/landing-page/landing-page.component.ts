@@ -9,7 +9,7 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LandingPageComponent implements OnInit {
     languageCharged!: Language;
-    constructor(private leagueChampionService: LeagueChampionService) {}
+    constructor(public leagueChampionService: LeagueChampionService) {}
 
     ngOnInit(): void {
         this.languageCharged = this.leagueChampionService.language;
