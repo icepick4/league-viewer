@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    displaySubmenu: boolean = false;
+    displaySubMenu: boolean = false;
     displayLanguages: boolean = false;
     constructor(private router: Router) {
         this.router.events.subscribe(async () => {
@@ -17,9 +17,9 @@ export class HeaderComponent implements OnInit {
                 router.url.includes('skins') ||
                 router.url.includes('all')
             ) {
-                this.displaySubmenu = true;
+                this.displaySubMenu = true;
             } else {
-                this.displaySubmenu = false;
+                this.displaySubMenu = false;
             }
         });
     }

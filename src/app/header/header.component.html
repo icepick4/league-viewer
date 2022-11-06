@@ -5,12 +5,14 @@
             <h1>League Viewer</h1>
         </a>
         <a routerLink="champions" routerLinkActive="active" class="links">Champions</a>
-        <div *ngIf="displaySubmenu">
+        <div *ngIf="displaySubMenu">
             <a routerLink="champions/lore" routerLinkActive="sub-active" class="links">Lore</a>
             <a routerLink="champions/skins" routerLinkActive="sub-active" class="links">Skins</a>
             <a routerLink="champions/all" routerLinkActive="sub-active" class="links">All</a>
             <app-language></app-language>
         </div>
-        <app-infos></app-infos>
+        <div *ngIf="!displaySubMenu">
+            <app-infos></app-infos>
+        </div>
     </nav>
 </header>
