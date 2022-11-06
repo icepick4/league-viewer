@@ -14,6 +14,7 @@ import { LeagueChampionComponent } from './league-champion/league-champion.compo
 import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
 import { InfosComponent } from './infos/infos.component';
+import { LeagueButtonComponent } from './league-button/league-button.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { InfosComponent } from './infos/infos.component';
         LeagueChampionSkinsComponent,
         CloseChampionComponent,
         InfosComponent,
+        LeagueButtonComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

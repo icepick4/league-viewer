@@ -5,3 +5,18 @@
     <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png" height=" 120"
         alt={{languageCharged.name}}>
 </div>
+
+<div class="links">
+    <a routerLink="champions/">
+        <app-league-button [text]="'Names'"></app-league-button>
+    </a>
+    <a routerLink="champions/lore">
+        <app-league-button [text]="'Lore'"></app-league-button>
+    </a>
+    <a routerLink="champions/skins">
+        <app-league-button [text]="'Skins'"></app-league-button>
+    </a>
+    <a routerLink="champions/all">
+        <app-league-button [text]="'All'"></app-league-button>
+    </a>
+</div>
