@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "league";
+    src: url("./assets/fonts/Friz Quadrata Regular.ttf");
+}
+
 * {
-    font-family: Roboto, Helvetica, sans-serif;
+    font-family: "league";
 }
 
 .background--custom-champ {

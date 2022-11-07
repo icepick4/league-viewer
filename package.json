@@ -18,7 +18,6 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "flag-icon-css": "^4.1.7",
     "image-preload": "^1.0.6",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
