@@ -1,9 +1,14 @@
-<img src="../../assets/landing-page.png" alt="Landing page" id="main-image" />
-
+<div class="images">
+    <img src="../../assets/landing-page.png" alt="Landing page" id="main-image" />
+    <div *ngIf="languageCharged">
+        <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png"
+            alt={{languageCharged.name}} id="lang">
+    </div>
+</div>
 <div class="links">
     <div class="link">
         <a routerLink="champions/">
-            <img src="../../assets/names_bg.png" alt="Champions" />
+            <img src="../../assets/names_bg1.png" alt="Champions" />
             <p>
                 Names
             </p>
@@ -11,7 +16,7 @@
     </div>
     <div class="link">
         <a routerLink="champions/lore">
-            <img src="../../assets/lore_bg.png" alt="Lore" />
+            <img src="../../assets/lore_bg1.png" alt="Lore" />
             <p>
                 Lore
             </p>
@@ -19,7 +24,7 @@
     </div>
     <div class="link">
         <a routerLink="champions/skins">
-            <img src="../../assets/skins_bg.png" alt="Skins" />
+            <img src="../../assets/skins_bg1.png" alt="Skins" />
             <p>
                 Skins
             </p>
@@ -27,15 +32,10 @@
     </div>
     <div class="link">
         <a routerLink="champions/all">
-            <img src="../../assets/all_bg.png" alt="All" />
+            <img src="../../assets/all_bg1.png" alt="All" />
             <p>
                 All
             </p>
         </a>
     </div>
 </div>
-
-<!-- <div *ngIf="languageCharged" id="lang">
-    <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png" height="120"
-        alt={{languageCharged.name}}>
-</div> -->

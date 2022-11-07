@@ -5,23 +5,29 @@
 
 #main-image {
     //responsive image
-    width: 8%;
+    width: 10%;
     height: auto;
     //center horizontally
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin-top: 3%;
+    // margin-left: auto;
+    // margin-right: auto;
+    // display: block;
+    margin-top: 0%;
+    margin-right: 5%;
 }
 
 #lang {
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 10vw;
 }
 
-img {
+.images {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // flex-direction: column;
+}
+
+.links img {
     width: 100%;
     height: auto;
 }
@@ -96,12 +102,5 @@ img {
             top: -50%;
             transform: translateY(-50%);
         }
-    }
-
-    #lang {
-        position: absolute;
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 }

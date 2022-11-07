@@ -1,7 +1,10 @@
 <select (change)="changeLanguage($event)">
     <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.name == selectLanguage.name">
-        {{lang.name}}</option>
+        {{lang.name}} </option>
+
 </select>
-<div *ngIf="!selectLanguage.charged" id="loading">
-    <app-loading-champion [purcentage]="selectLanguage.name"></app-loading-champion>
+<div *ngIf=" !selectLanguage.charged" id="loading">
+    <app-loading-champion
+        [purcentage]="getLanguageName(selectLanguage.code.slice(0,2)) != '' ? getLanguageName(selectLanguage.code.slice(0,2)) : selectLanguage.name">
+    </app-loading-champion>
 </div>

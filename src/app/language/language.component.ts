@@ -27,4 +27,12 @@ export class LanguageComponent implements OnInit {
         this.leagueChampionService.changeLanguage(lang);
         this.selectLanguage = this.leagueChampionService.language;
     }
+
+    getLanguageName(code: string): string {
+        let CountryLanguage = require('country-language');
+        if (CountryLanguage.languageCodeExists(code.slice(0, 2))) {
+            return CountryLanguage.getLanguage(code.slice(0, 2)).name[0];
+        }
+        return '';
+    }
 }
