@@ -1,7 +1,9 @@
 <div *ngIf="champion" class="champion" [ngClass]="champion.loaded ? 'background--custom-champ' : ''">
     <div *ngIf="champion.loaded">
-        <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
-        <app-close-champion></app-close-champion>
+        <div class="top">
+            <h1 id="title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
+            <app-close-champion id="close"></app-close-champion>
+        </div>
     </div>
     <div *ngIf="(type == 'skins' || type == 'all')">
         <app-league-champion-skins [champion]="champion">

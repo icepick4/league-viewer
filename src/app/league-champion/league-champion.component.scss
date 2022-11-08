@@ -1,6 +1,6 @@
 .champion {
     margin: 0 auto;
-    width: 45vw;
+    width: 36vw;
     padding: 20px;
     position: fixed;
     top: 50%;
@@ -13,6 +13,15 @@
         text-align: center;
     }
     transition: all 0.5s;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top #close {
+    margin-top: -2%;
 }
 
 h1 {
@@ -44,7 +53,7 @@ h1 {
         width: 85%;
         padding: 10px;
         #title {
-            font-size: 1em;
+            font-size: 2em;
         }
     }
 }

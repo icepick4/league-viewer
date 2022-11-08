@@ -2,9 +2,9 @@ button {
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 1%;
+    // position: absolute;
+    // top: -0.5vw;
+    // right: 1%;
     font-size: 1.5em;
     font-weight: bold;
     margin: 15px;
@@ -36,4 +36,12 @@ button {
 #mdiv {
     transform: scale(1);
     transition: all 0.3s ease;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    button {
+        // top: -5%;
+        // right: 0;
+        transform: scale(0.7);
+    }
 }
