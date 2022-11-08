@@ -79,7 +79,7 @@
         a {
             border: 5px solid rgb(255, 255, 255);
             img {
-                filter: brightness(0.4);
+                filter: brightness(0.35);
             }
         }
     }
@@ -101,6 +101,25 @@
             transform: translateY(0);
             top: -50%;
             transform: translateY(-50%);
+        }
+    }
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .link {
+        width: 65vw;
+        height: 45vw;
+        p {
+            opacity: 1;
+            font-size: 5vw;
+            color: #fff;
+        }
+
+        a {
+            border: 5px solid rgb(255, 255, 255);
+            img {
+                filter: brightness(0.6);
+            }
         }
     }
 }

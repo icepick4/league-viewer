@@ -1,7 +1,7 @@
 h1 {
     text-align: center;
     //responsive font size
-    font-size: 2.5rem;
+    font-size: 3.75vw;
 }
 
 header {
@@ -12,25 +12,32 @@ header {
     background-color: #bee076;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    height: 5.5rem;
+    height: 7vw;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 900px;
+    max-width: 100vw;
+}
+
+nav > * {
+    margin-right: 3vw;
 }
 
 .links {
-    margin: 0 30px;
     color: #333;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
     }
     font-size: 1.2rem;
+}
+
+.sub-categories a {
+    margin-left: 10px;
 }
 
 a {
@@ -60,8 +67,37 @@ a {
     z-index: 1000;
 }
 
-.infos {
-    position: absolute;
-    top: 0;
-    right: 0;
+// .infos {
+//     //center vertically
+//     position: absolute;
+//     top: -1%;
+//     right: 0;
+// }
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    header {
+        height: 20vw;
+        h1 {
+            font-size: 10vw;
+        }
+    }
+    nav #home {
+        display: none;
+    }
+    nav #champ {
+        display: none;
+    }
+
+    nav > * {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 800px) {
+    nav #home {
+        display: none;
+    }
+    nav #champ {
+        display: none;
+    }
 }

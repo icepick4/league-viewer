@@ -1,18 +1,22 @@
 <header>
     <nav>
-        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" class="links">Home</a>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" class="links"
+            id="home">Home</a>
         <a routerLink="">
             <h1>League Viewer</h1>
         </a>
-        <a routerLink="champions" routerLinkActive="active" class="links">Champions</a>
-        <div *ngIf="displaySubMenu">
+        <a routerLink="champions" routerLinkActive="active" class="links" id="champ">Champions</a>
+        <div *ngIf="displaySubMenu" class="sub-categories">
             <a routerLink="champions/lore" routerLinkActive="sub-active" class="links">Lore</a>
             <a routerLink="champions/skins" routerLinkActive="sub-active" class="links">Skins</a>
             <a routerLink="champions/all" routerLinkActive="sub-active" class="links">All</a>
+        </div>
+        <div *ngIf="displaySubMenu">
             <app-language></app-language>
         </div>
         <div *ngIf="!displaySubMenu" class="infos">
             <app-infos></app-infos>
         </div>
     </nav>
+
 </header>

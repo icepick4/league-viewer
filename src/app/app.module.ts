@@ -14,6 +14,7 @@ import { LeagueChampionSkinsComponent } from './league-champion-skins/league-cha
 import { LeagueChampionComponent } from './league-champion/league-champion.component';
 import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
+import { GoUpComponent } from './go-up/go-up.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { LoadingChampionComponent } from './loading-champion/loading-champion.co
         LeagueChampionSkinsComponent,
         CloseChampionComponent,
         InfosComponent,
+        GoUpComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

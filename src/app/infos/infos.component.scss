@@ -1,10 +1,7 @@
 .links {
     display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
     align-items: center;
-    font-size: 2.5em;
+    font-size: 4vw;
 }
 
 .links a {
@@ -27,4 +24,10 @@
 
 .links p {
     font-size: 0.7em;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .links {
+        display: none;
+    }
 }

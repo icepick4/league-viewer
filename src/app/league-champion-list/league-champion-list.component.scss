@@ -1,6 +1,24 @@
 .champions {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(9%, 1fr));
     grid-gap: 1rem;
     margin: 1rem;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .champions {
+        grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
+    }
+}
+
+@media (max-width: 1200px) {
+    .champions {
+        grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .champions {
+        grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
+    }
 }
