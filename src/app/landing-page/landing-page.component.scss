@@ -39,8 +39,10 @@
     width: 100%;
     margin: 0;
     position: absolute;
-    top: 50%;
-    transform: translateY(-10%);
+    //center horizontally and vertically
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .link {
@@ -92,7 +94,10 @@
     .links {
         margin-top: 7%;
         flex-direction: column;
-        // transform: translateY(-42%);
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
     }
 
     .link {
@@ -111,7 +116,7 @@
 
 @media only screen and (hover: none) and (pointer: coarse) {
     .links {
-        margin-top: 3%;
+        margin-top: 5%;
         flex-direction: column;
     }
     .link {

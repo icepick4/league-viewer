@@ -19,16 +19,6 @@ h1 {
     margin: 1.5%;
 }
 
-@media only screen and (hover: none) and (pointer: coarse) {
-    .champion {
-        width: 80%;
-        padding: 10px;
-        #title {
-            font-size: 2em;
-        }
-    }
-}
-
 @media (max-width: 1300px) {
     .champion {
         width: 65vw;
@@ -45,6 +35,16 @@ h1 {
         padding: 10px;
         #title {
             font-size: 2em;
+        }
+    }
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .champion {
+        width: 85%;
+        padding: 10px;
+        #title {
+            font-size: 1em;
         }
     }
 }

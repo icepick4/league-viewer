@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
@@ -50,6 +50,15 @@ export class LeagueChampionSkinsComponent implements OnInit {
     goLeft(): void {
         if (this.champion) {
             this.leagueChampionService.changeSkinLeft(this.champion);
+        }
+    }
+
+    @HostListener('window:keyup', ['$event'])
+    keyEvent(event: KeyboardEvent) {
+        if (event.key === 'ArrowRight') {
+            this.goRight();
+        } else if (event.key === 'ArrowLeft') {
+            this.goLeft();
         }
     }
 
