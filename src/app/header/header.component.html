@@ -11,12 +11,12 @@
             <a routerLink="champions/skins" routerLinkActive="sub-active" class="links">Skins</a>
             <a routerLink="champions/all" routerLinkActive="sub-active" class="links">All</a>
         </div>
-        <div *ngIf="displaySubMenu">
-            <app-language></app-language>
-        </div>
-        <div *ngIf="!displaySubMenu" class="infos">
-            <app-infos></app-infos>
-        </div>
-    </nav>
 
+    </nav>
+    <div *ngIf="displaySubMenu" class="languages">
+        <app-language></app-language>
+    </div>
+    <div *ngIf="!displaySubMenu" class="infos">
+        <app-infos></app-infos>
+    </div>
 </header>

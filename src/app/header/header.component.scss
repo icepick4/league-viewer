@@ -33,11 +33,7 @@ nav > * {
     &:hover {
         text-decoration: underline;
     }
-    font-size: 1.2rem;
-}
-
-.sub-categories a {
-    margin-left: 10px;
+    font-size: 1.3em;
 }
 
 a {
@@ -45,16 +41,25 @@ a {
     color: #333;
 }
 
+.sub-categories a {
+    margin-left: 20px;
+}
+
+.sub-categories {
+    display: flex;
+    flex-direction: row;
+}
+
 .active {
     color: rgb(51, 144, 224);
     text-decoration: underline;
-    font-size: 1.6em;
+    font-size: 1.8em;
 }
 
 .sub-active {
     color: rgb(148, 100, 216);
     text-decoration: underline;
-    font-size: 1.25em;
+    font-size: 1.7em;
 }
 
 #loading {
@@ -65,6 +70,11 @@ a {
     height: 100%;
     background-color: #bee076;
     z-index: 1000;
+}
+
+.languages {
+    float: right;
+    margin-right: 1rem;
 }
 
 // .infos {
@@ -90,6 +100,14 @@ a {
 
     nav > * {
         margin-right: 0px;
+    }
+
+    .sub-categories {
+        flex-direction: column;
+    }
+
+    .sub-active {
+        font-size: 1.3em;
     }
 }
 
