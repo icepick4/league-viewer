@@ -22,3 +22,9 @@
         grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
     }
 }
+
+@media (max-width: 500px) {
+    .champions {
+        grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    }
+}

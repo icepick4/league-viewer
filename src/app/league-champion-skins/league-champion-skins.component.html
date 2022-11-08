@@ -3,12 +3,15 @@
     </app-loading-champion>
     <img hidden *ngFor="let img of champion.skins;" [src]="img.splashPath" (load)="loading()" />
 </div>
-<div *ngIf="champion && champion.loaded">
-    <button id="arrow-left" (click)="goLeft()">
-        <span class="arrow-left"></span>
-    </button>
-    <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
-    <button id="arrow-right" (click)="goRight()">
-        <span class="arrow-right"></span>
-    </button>
+<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+    <div *ngIf="champion && champion.loaded" class="content">
+        <button id="arrow-left" (click)="goLeft()">
+            <span class="arrow-left"></span>
+        </button>
+        <img id="main-img" [src]="champion.skins[champion.currentSkin].splashPath" alt="champion image" />
+        <button id="arrow-right" (click)="goRight()">
+            <span class="arrow-right"></span>
+        </button>
+        <app-swiping-anim class="swipe"></app-swiping-anim>
+    </div>
 </div>

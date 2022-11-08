@@ -1,11 +1,47 @@
 #lore {
     font-weight: 300;
     //responsive font size with vw and vh
-    font-size: 1.1vw;
+    font-size: 1.5vw;
     line-height: 1.2;
     margin: 0 auto;
     width: 100%;
     height: 100%;
     overflow: auto;
     text-align: justify;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    #lore {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    #lore {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 1050px) {
+    #lore {
+        font-size: 2.5vw;
+    }
+}
+
+@media (max-width: 800px) {
+    #lore {
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 650px) {
+    #lore {
+        font-size: 3.5vw;
+    }
+}
+
+@media (max-width: 500px) {
+    #lore {
+        font-size: 4vw;
+    }
 }

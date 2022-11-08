@@ -15,6 +15,7 @@ import { LeagueChampionComponent } from './league-champion/league-champion.compo
 import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
 import { GoUpComponent } from './go-up/go-up.component';
+import { SwipingAnimComponent } from './swiping-anim/swiping-anim.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { GoUpComponent } from './go-up/go-up.component';
         CloseChampionComponent,
         InfosComponent,
         GoUpComponent,
+        SwipingAnimComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

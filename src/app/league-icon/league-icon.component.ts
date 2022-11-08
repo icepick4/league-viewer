@@ -8,6 +8,5 @@ import { Champion } from '../models/champion.model';
 })
 export class LeagueIconComponent implements OnInit {
     @Input() champion!: Champion;
-    @Input() selectedChampion: string | null = null;
     ngOnInit(): void {}
 }

@@ -1,6 +1,6 @@
 .champion {
     margin: 0 auto;
-    width: 40%;
+    width: 45vw;
     padding: 20px;
     position: fixed;
     top: 50%;
@@ -8,9 +8,43 @@
     transform: translate(-50%, -50%);
     border-radius: 6px;
     #title {
-        font-size: 2.5em;
+        font-size: 3vw;
         font-weight: bold;
         text-align: center;
     }
     transition: all 0.5s;
+}
+
+h1 {
+    margin: 1.5%;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .champion {
+        width: 80%;
+        padding: 10px;
+        #title {
+            font-size: 2em;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .champion {
+        width: 65vw;
+        padding: 10px;
+        #title {
+            font-size: 2em;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .champion {
+        width: 75vw;
+        padding: 10px;
+        #title {
+            font-size: 2em;
+        }
+    }
 }
