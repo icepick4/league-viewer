@@ -9,7 +9,7 @@ header {
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
-    background-color: #bee076;
+    background-color: #432c7a;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     height: 5vw;
@@ -28,7 +28,7 @@ nav > * {
 }
 
 .links {
-    color: #333;
+    color: #000;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -38,7 +38,7 @@ nav > * {
 
 a {
     text-decoration: none;
-    color: #333;
+    color: #000;
 }
 
 .sub-categories a {
@@ -51,7 +51,7 @@ a {
 }
 
 .active {
-    color: rgb(51, 144, 224);
+    color: #ad4eb8;
     text-decoration: underline;
     font-size: 1.8em;
 }

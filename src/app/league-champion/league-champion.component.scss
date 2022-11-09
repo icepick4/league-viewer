@@ -24,6 +24,9 @@
 
 .width {
     width: 40vw;
+    h1 {
+        font-size: 3vw;
+    }
 }
 
 .top {
@@ -52,11 +55,13 @@ h1 {
 @media (max-width: 800px) {
     .width {
         width: 75vw;
+        h1 {
+            font-size: 4vw;
+        }
     }
-
     .no-width {
         h1 {
-            font-size: 3.5em;
+            font-size: 4em;
         }
     }
     .champion {
@@ -67,6 +72,9 @@ h1 {
 @media only screen and (hover: none) and (pointer: coarse) {
     .width {
         width: 85%;
+        h1 {
+            font-size: 7vw;
+        }
     }
     .no-width {
         h1 {

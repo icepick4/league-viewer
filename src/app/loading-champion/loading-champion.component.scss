@@ -63,8 +63,12 @@ p {
 }
 
 @media (max-width: 1000px) {
+    .champion {
+        width: 35vw;
+        height: 35vw;
+    }
     p {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 }
 

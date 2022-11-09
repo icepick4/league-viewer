@@ -135,6 +135,7 @@ export class LeagueChampionService {
             this.fetchAllChampions(this.language.code);
         } else {
             this.language.charged = true;
+            this.router.navigateByUrl('/');
         }
     }
 

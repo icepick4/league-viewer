@@ -4,6 +4,6 @@
 
 </select>
 <div *ngIf=" !selectLanguage.charged" id="loading">
-    <app-loading-champion [purcentage]="selectLanguage.name">
+    <app-loading-champion [purcentage]="getLanguageName(selectLanguage.code)">
     </app-loading-champion>
 </div>
