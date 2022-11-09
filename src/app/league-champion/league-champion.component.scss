@@ -15,9 +15,21 @@
     transition: all 0.5s;
 }
 
+.no-width {
+    width: auto;
+    h1 {
+        font-size: 5vw;
+    }
+}
+
+.width {
+    width: 40vw;
+}
+
 .top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .top #close {
@@ -29,31 +41,39 @@ h1 {
 }
 
 @media (max-width: 1300px) {
-    .champion {
+    .width {
         width: 65vw;
+    }
+    .champion {
         padding: 10px;
-        #title {
-            font-size: 2em;
-        }
     }
 }
 
 @media (max-width: 800px) {
-    .champion {
+    .width {
         width: 75vw;
-        padding: 10px;
-        #title {
-            font-size: 2em;
+    }
+
+    .no-width {
+        h1 {
+            font-size: 3.5em;
         }
+    }
+    .champion {
+        padding: 10px;
     }
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
-    .champion {
+    .width {
         width: 85%;
-        padding: 10px;
-        #title {
-            font-size: 2em;
+    }
+    .no-width {
+        h1 {
+            font-size: 3em;
         }
+    }
+    .champion {
+        padding: 10px;
     }
 }

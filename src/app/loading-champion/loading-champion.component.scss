@@ -7,13 +7,13 @@ p {
     transform: translate(-50%, 20%);
     font-size: 3vw;
     font-weight: 400;
-    width: 150%;
+    width: 140%;
 }
 
 .champion {
     margin: 0 auto;
-    width: 35vw;
-    height: 35vw;
+    width: 25vw;
+    height: 25vw;
     padding: 20px;
     position: fixed;
     top: 50%;
@@ -29,15 +29,15 @@ p {
     top: 33%;
     left: 42%;
     transform: translate(-50%, -50%);
-    width: 17vw;
-    height: 17vw;
+    width: 13vw;
+    height: 13vw;
 }
 .lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 22vw;
-    height: 22vw;
+    width: 16vw;
+    height: 16vw;
     margin: 8px;
     border: 20px solid #cef;
     border-radius: 50%;
@@ -76,5 +76,15 @@ p {
 
     p {
         font-size: 7vw;
+    }
+
+    .lds-ring {
+        width: 18vw;
+        height: 18vw;
+    }
+
+    .lds-ring div {
+        width: 22vw;
+        height: 22vw;
     }
 }
