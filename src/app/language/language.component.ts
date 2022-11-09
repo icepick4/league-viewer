@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Language } from '../models/language.model';
+import { Language, languagesNames } from '../models/language.model';
 import { LeagueChampionService } from '../services/league-champion.service';
-
 @Component({
     selector: 'app-language',
     templateUrl: './language.component.html',
@@ -29,10 +28,6 @@ export class LanguageComponent implements OnInit {
     }
 
     getLanguageName(code: string): string {
-        let CountryLanguage = require('country-language');
-        if (CountryLanguage.languageCodeExists(code.slice(0, 2))) {
-            return CountryLanguage.getLanguage(code.slice(0, 2)).name[0];
-        }
-        return '';
+        return languagesNames[code];
     }
 }

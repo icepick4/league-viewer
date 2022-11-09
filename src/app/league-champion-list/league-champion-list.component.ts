@@ -35,6 +35,10 @@ export class LeagueChampionListComponent implements OnInit {
     }
 
     onChampionClick(name: string): void {
+        const champ = this.champions.find((champ) => champ.name === name);
+        if (champ) {
+            champ.loaded = false;
+        }
         //get the param type in url
         const type = this.activatedRoute.snapshot.params['type'];
         this.router.navigate([`/champions/${type}/${name}`]);
