@@ -7,7 +7,7 @@ p {
     transform: translate(-50%, 20%);
     font-size: 3vw;
     font-weight: 400;
-    width: 140%;
+    width: 100%;
 }
 
 .champion {
@@ -74,12 +74,12 @@ p {
 
 @media only screen and (hover: none) and (pointer: coarse) {
     .champion {
-        width: 38vw;
-        height: 33vw;
+        width: 43vw;
+        height: 36vw;
     }
 
     p {
-        font-size: 7vw;
+        font-size: 6vw;
     }
 
     .lds-ring {
