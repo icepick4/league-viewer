@@ -9,29 +9,14 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LeagueChampionListComponent implements OnInit {
     champions!: Champion[];
-    selectedChampion: string | null = null;
     constructor(
         private leagueChampionService: LeagueChampionService,
         private router: Router,
         private activatedRoute: ActivatedRoute
-    ) {
-        router.events.subscribe(async () => {
-            if (
-                router.url === '/champions' ||
-                router.url === '/champions/all' ||
-                router.url === '/champions/lore' ||
-                router.url === '/champions/skins'
-            ) {
-                this.selectedChampion = null;
-            } else {
-                this.selectedChampion = this.router.url.split('/')[3];
-            }
-        });
-    }
+    ) {}
 
     ngOnInit(): void {
         this.champions = this.leagueChampionService.getAllChampions();
-        this.selectedChampion = this.router.url.split('/')[3];
     }
 
     onChampionClick(name: string): void {

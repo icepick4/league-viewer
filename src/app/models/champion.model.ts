@@ -16,4 +16,20 @@ export class Champion {
         public currentSkin: number,
         public loaded: boolean
     ) {}
+
+    changeSkinRight(): void {
+        if (this.currentSkin < this.skins.length - 1) {
+            this.currentSkin++;
+        } else {
+            this.currentSkin = 0;
+        }
+    }
+
+    changeSkinLeft(): void {
+        if (this.currentSkin > 0) {
+            this.currentSkin--;
+        } else {
+            this.currentSkin = this.skins.length - 1;
+        }
+    }
 }

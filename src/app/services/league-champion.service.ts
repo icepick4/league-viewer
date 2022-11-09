@@ -37,42 +37,23 @@ export class LeagueChampionService {
     async fetchAllChampions(language: string): Promise<void> {
         console.log('fetchAllChampions');
         let temp_champions: Champion[] = [];
-        const global_res = await fetch(
-            `http://ddragon.leagueoflegends.com/cdn/${this.version}/data/${language}/champion.json`
-        );
-        if (!global_res.ok) {
-            throw 'Error :' + global_res.status;
-        }
-        const data = await global_res.json();
-        const fetched_champions = data.data;
         let i = 0;
+        const fetched_champions = await this.getAllChamps(language);
         for (const champion in fetched_champions) {
+            const champId = fetched_champions[champion].id;
             const champ_res = await fetch(
-                `http://ddragon.leagueoflegends.com/cdn/${this.version}/data/${language}/champion/${fetched_champions[champion].id}.json`
+                `http://ddragon.leagueoflegends.com/cdn/${this.version}/data/${this.language.code}/champion/${champId}.json`
             );
             if (!champ_res.ok) {
                 throw 'Error :' + champ_res.status;
             }
             const champ_data = await champ_res.json();
-            const champ = champ_data.data[fetched_champions[champion].id];
+            const champ = champ_data.data[champId];
             let skinChampId = champ.id;
             champ.skins[0].name = champ.name;
             if (champ.id == 'Fiddlesticks') {
                 skinChampId = 'FiddleSticks';
             }
-            const skins = champ.skins.map((skin: any) => {
-                return {
-                    num: skin.num,
-                    name: skin.name,
-                    splashPath:
-                        'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' +
-                        skinChampId +
-                        '_' +
-                        skin.num +
-                        '.jpg',
-                    chromas: skin.chromas,
-                };
-            });
             const mainImage =
                 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' +
                 champ.id +
@@ -87,7 +68,7 @@ export class LeagueChampionService {
                 champ.lore,
                 mainImage,
                 icon,
-                skins,
+                this.getSkins(champ.skins, skinChampId),
                 0,
                 false
             );
@@ -123,6 +104,34 @@ export class LeagueChampionService {
         }
     }
 
+    getSkins(skins: any[], skinChampId: number): any[] {
+        return skins.map((skin) => {
+            return {
+                num: skin.num,
+                name: skin.name,
+                splashPath:
+                    'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' +
+                    skinChampId +
+                    '_' +
+                    skin.num +
+                    '.jpg',
+                chromas: skin.chromas,
+            };
+        });
+    }
+
+    async getAllChamps(language: string): Promise<any[]> {
+        const global_res = await fetch(
+            `http://ddragon.leagueoflegends.com/cdn/${this.version}/data/${language}/champion.json`
+        );
+        if (!global_res.ok) {
+            throw 'Error :' + global_res.status;
+        }
+        const data = await global_res.json();
+        const fetched_champions = data.data;
+        return fetched_champions;
+    }
+
     getAllLanguages(): Language[] {
         return this.languages;
     }
@@ -136,22 +145,6 @@ export class LeagueChampionService {
         } else {
             this.language.charged = true;
             this.router.navigateByUrl('/');
-        }
-    }
-
-    changeSkinRight(champion: Champion): void {
-        if (champion.currentSkin < champion.skins.length - 1) {
-            champion.currentSkin++;
-        } else {
-            champion.currentSkin = 0;
-        }
-    }
-
-    changeSkinLeft(champion: Champion): void {
-        if (champion.currentSkin > 0) {
-            champion.currentSkin--;
-        } else {
-            champion.currentSkin = champion.skins.length - 1;
         }
     }
 

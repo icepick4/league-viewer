@@ -2,4 +2,7 @@
     <app-league-icon *ngFor="let champion of champions" [champion]="champion" (click)="onChampionClick(champion.name)">
     </app-league-icon>
     <app-league-champion></app-league-champion>
+    <div *ngIf="!champions">
+        <app-loading-champion [purcentage]="'English'"></app-loading-champion>
+    </div>
 </div>
