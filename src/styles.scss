@@ -11,7 +11,7 @@
 .background--custom-champ {
     background: linear-gradient(90deg, #40a9e1, #edf052, #e08ab1);
     background-size: 300% 300%;
-    // animation: gradient 4s alternate infinite;
+    animation: gradient 3s alternate infinite;
 }
 
 @keyframes gradient {

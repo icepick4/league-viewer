@@ -43,13 +43,13 @@ export class LeagueChampionSkinsComponent implements OnInit {
 
     goRight(): void {
         if (this.champion) {
-            this.leagueChampionService.changeSkinRight(this.champion);
+            this.champion.changeSkinRight();
         }
     }
 
     goLeft(): void {
         if (this.champion) {
-            this.leagueChampionService.changeSkinLeft(this.champion);
+            this.champion.changeSkinLeft();
         }
     }
 
