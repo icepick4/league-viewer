@@ -69,6 +69,14 @@ h1 {
     }
 }
 
+@media (max-width: 550px) {
+    .no-width {
+        h1 {
+            font-size: 2.75em;
+        }
+    }
+}
+
 @media only screen and (hover: none) and (pointer: coarse) {
     .width {
         width: 85%;
@@ -78,7 +86,7 @@ h1 {
     }
     .no-width {
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
         }
     }
     .champion {
