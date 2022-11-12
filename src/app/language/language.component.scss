@@ -6,7 +6,15 @@ select {
     padding: 5px;
     margin: 17px;
     font-size: 1.3vw;
-    //center vertically
+    background-color: #ad4eb8;
+}
+
+select option {
+    background-color: #ad4eb8;
+}
+
+option:hover {
+    background-color: #53339e;
 }
 
 @media (max-width: 900px) {

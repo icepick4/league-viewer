@@ -18,6 +18,7 @@ export class Champion {
     ) {}
 
     changeSkinRight(): void {
+        console.log(this.currentSkin);
         if (this.currentSkin < this.skins.length - 1) {
             this.currentSkin++;
         } else {
