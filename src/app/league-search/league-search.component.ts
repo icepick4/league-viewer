@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LeagueChampionService } from '../services/league-champion.service';
-import { LeagueSearchService } from '../services/league-search.service';
 
 @Component({
     selector: 'app-league-search',
@@ -11,19 +11,19 @@ export class LeagueSearchComponent implements OnInit {
     search!: string;
     constructor(
         private leagueChampionService: LeagueChampionService,
-        private searchService: LeagueSearchService
-    ) {}
-    ngOnInit(): void {
-        this.search = this.searchService.getSearch();
-        console.log(this.search);
+        private router: Router
+    ) {
+        router.events.subscribe(async () => {
+            if (router.url === '/') {
+                this.leagueChampionService.unfilterChampions();
+            }
+        });
     }
+
+    ngOnInit(): void {}
 
     filterChampions(event: any): void {
         const filter = event.target.value;
-        console.log(filter);
-        if (filter != null && filter != '') {
-            this.searchService.storeSearch(filter);
-        }
         this.leagueChampionService.filterChampions(filter);
     }
 }

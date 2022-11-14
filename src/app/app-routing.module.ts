@@ -5,10 +5,6 @@ import { LeagueChampionListComponent } from './league-champion-list/league-champ
 
 const routes: Routes = [
     {
-        path: 'champions',
-        component: LeagueChampionListComponent,
-    },
-    {
         path: '',
         component: LandingPageComponent,
     },

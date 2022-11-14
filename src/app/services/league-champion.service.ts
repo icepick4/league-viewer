@@ -164,13 +164,10 @@ export class LeagueChampionService {
         return this.champions[this.language.sliced_code];
     }
 
-    getAllChampionsShown(): Champion[] {
-        return this.champions[this.language.sliced_code].filter(
-            (champion) => champion.show
-        );
-    }
-
     filterChampions(filter: string): void {
+        if (this.champions == undefined) {
+            return;
+        }
         //if champion name contains filter
         for (let champion in this.champions[this.language.sliced_code]) {
             if (
@@ -183,6 +180,12 @@ export class LeagueChampionService {
                 this.champions[this.language.sliced_code][champion].show =
                     false;
             }
+        }
+    }
+
+    unfilterChampions(): void {
+        for (let champion in this.champions[this.language.sliced_code]) {
+            this.champions[this.language.sliced_code][champion].show = true;
         }
     }
 }
