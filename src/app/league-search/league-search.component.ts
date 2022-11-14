@@ -24,6 +24,8 @@ export class LeagueSearchComponent implements OnInit {
 
     filterChampions(event: any): void {
         const filter = event.target.value;
-        this.leagueChampionService.filterChampions(filter);
+        //remove all spaces
+        const filterNoSpaces = filter.replace(/\s/g, '');
+        this.leagueChampionService.filterChampions(filterNoSpaces);
     }
 }
