@@ -17,7 +17,7 @@ export class LeagueChampionComponent implements OnInit {
     ) {
         router.events.subscribe(async () => {
             if (
-                router.url === '/champions' ||
+                router.url === '/champions/names' ||
                 router.url === '/champions/all' ||
                 router.url === '/champions/lore' ||
                 router.url === '/champions/skins'

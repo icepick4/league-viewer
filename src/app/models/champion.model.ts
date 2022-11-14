@@ -14,7 +14,8 @@ export class Champion {
         public icon: string,
         public skins: Skin[],
         public currentSkin: number,
-        public loaded: boolean
+        public loaded: boolean,
+        public show: boolean
     ) {}
 
     changeSkinRight(): void {

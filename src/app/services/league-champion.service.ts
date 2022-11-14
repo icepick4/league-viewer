@@ -70,7 +70,8 @@ export class LeagueChampionService {
                 icon,
                 this.getSkins(champ.skins, skinChampId),
                 0,
-                false
+                false,
+                true
             );
             temp_champions.push(championObj);
             i++;
@@ -161,5 +162,27 @@ export class LeagueChampionService {
 
     getAllChampions(): Champion[] {
         return this.champions[this.language.sliced_code];
+    }
+
+    getAllChampionsShown(): Champion[] {
+        return this.champions[this.language.sliced_code].filter(
+            (champion) => champion.show
+        );
+    }
+
+    filterChampions(filter: string): void {
+        //if champion name contains filter
+        for (let champion in this.champions[this.language.sliced_code]) {
+            if (
+                this.champions[this.language.sliced_code][champion].name
+                    .toLowerCase()
+                    .includes(filter.toLowerCase())
+            ) {
+                this.champions[this.language.sliced_code][champion].show = true;
+            } else {
+                this.champions[this.language.sliced_code][champion].show =
+                    false;
+            }
+        }
     }
 }

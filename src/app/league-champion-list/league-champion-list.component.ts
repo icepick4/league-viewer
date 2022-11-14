@@ -18,7 +18,7 @@ export class LeagueChampionListComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.champions = this.leagueChampionService.getAllChampions();
+        this.champions = this.leagueChampionService.getAllChampionsShown();
     }
 
     onChampionClick(name: string): void {

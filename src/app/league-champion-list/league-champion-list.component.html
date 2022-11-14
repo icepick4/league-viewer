@@ -1,8 +1,13 @@
+<app-league-search></app-league-search>
+
 <div class="champions">
-    <app-league-icon *ngFor="let champion of champions" [champion]="champion" (click)="onChampionClick(champion.name)">
-    </app-league-icon>
-    <app-league-champion></app-league-champion>
-    <div *ngIf="!champions">
-        <app-loading-champion [purcentage]="getLanguageName()"></app-loading-champion>
+    <div *ngFor="let champion of champions">
+        <app-league-icon [champion]="champion" (click)="onChampionClick(champion.name)">
+        </app-league-icon>
     </div>
+</div>
+
+<app-league-champion></app-league-champion>
+<div *ngIf="!champions">
+    <app-loading-champion [purcentage]="getLanguageName()"></app-loading-champion>
 </div>

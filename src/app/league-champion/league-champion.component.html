@@ -1,5 +1,5 @@
 <div *ngIf="champion" class="champion"
-    [ngClass]="[champion.loaded ? 'background--custom-champ' : '', type == 'undefined' ? 'no-width' : 'width']">
+    [ngClass]="[champion.loaded ? 'background--custom-champ' : '', type == 'names' ? 'no-width' : 'width']">
     <div *ngIf="champion.loaded">
         <div class="top">
             <h1 id=" title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>

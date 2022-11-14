@@ -5,12 +5,13 @@
         <a routerLink="">
             <h1>League Viewer</h1>
         </a>
-        <a routerLink="champions" routerLinkActive="active" class="links" id="champ">Champions</a>
+        <a routerLink="champions/names" routerLinkActive="active" class="links" id="champ">Champions</a>
         <div *ngIf="displaySubMenu" class="sub-categories">
             <a routerLink="champions/lore" routerLinkActive="sub-active" class="links">Lore</a>
             <a routerLink="champions/skins" routerLinkActive="sub-active" class="links">Skins</a>
             <a routerLink="champions/all" routerLinkActive="sub-active" class="links">All</a>
         </div>
+
 
     </nav>
     <div *ngIf="displaySubMenu" class="languages">
