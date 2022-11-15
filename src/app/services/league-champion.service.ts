@@ -21,8 +21,10 @@ export class LeagueChampionService {
         this.champions = {};
         //wait for getVerison to finish
         this.getVersion().then(() => {
-            this.fetchAllLanguages();
-            this.fetchAllChampions(this.language.code);
+            this.fetchAllLanguages().then(() => {
+                this.languages[0].charged = true;
+                this.fetchAllChampions(this.language.code);
+            });
         });
     }
 
