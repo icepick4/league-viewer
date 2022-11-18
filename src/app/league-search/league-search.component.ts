@@ -17,12 +17,20 @@ export class LeagueSearchComponent implements OnInit {
             if (router.url === '/') {
                 this.leagueChampionService.unfilterChampions();
             }
+            if (
+                router.url != '/champions/skins' &&
+                router.url != '/champions/names' &&
+                router.url != '/champions/lore'
+            ) {
+                this.leagueChampionService.unfilterChampions();
+            }
         });
     }
 
     ngOnInit(): void {}
 
     filterChampions(event: any): void {
+        console.log('filtering champions');
         const filter = event.target.value;
         //remove all spaces
         const filterNoSpaces = filter.replace(/\s/g, '');
