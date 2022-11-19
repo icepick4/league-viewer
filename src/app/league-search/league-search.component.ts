@@ -30,7 +30,7 @@ export class LeagueSearchComponent implements OnInit {
     ngOnInit(): void {}
 
     filterChampions(event: any): void {
-        console.log('filtering champions');
+        this.search = event.target.value;
         const filter = event.target.value;
         //remove all spaces
         const filterNoSpaces = filter.replace(/\s/g, '');

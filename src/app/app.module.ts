@@ -18,6 +18,7 @@ import { LeagueIconComponent } from './league-icon/league-icon.component';
 import { LeagueSearchComponent } from './league-search/league-search.component';
 import { LoadingChampionComponent } from './loading-champion/loading-champion.component';
 import { SwipingAnimComponent } from './swiping-anim/swiping-anim.component';
+import { CatEasterEggComponent } from './cat-easter-egg/cat-easter-egg.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { SwipingAnimComponent } from './swiping-anim/swiping-anim.component';
         GoUpComponent,
         SwipingAnimComponent,
         LeagueSearchComponent,
+        CatEasterEggComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
     providers: [],
