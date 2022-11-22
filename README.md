@@ -1,6 +1,8 @@
 # LeagueViewer
 
-Add badges
+[![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)](https://forthebadge.com) </br>
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) </br>
+[![forthebadge](https://forthebadge.com/images/badges/contains-cat-gifs.svg)](https://forthebadge.com)
 
 ## Context
 
