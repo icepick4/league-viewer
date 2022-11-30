@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Champion } from '../models/champion.model';
 import { languagesNames } from '../models/language.model';
@@ -30,4 +30,7 @@ export class LeagueChampionListComponent implements OnInit {
     getLanguageName() {
         return languagesNames[this.leagueChampionService.language.code];
     }
+
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event: any) {}
 }

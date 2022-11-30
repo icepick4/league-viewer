@@ -29,6 +29,7 @@ export class LeagueChampionService {
     }
 
     async getVersion(): Promise<void> {
+        //get the current version of the game
         const version_res = await fetch(
             'http://ddragon.leagueoflegends.com/api/versions.json'
         );
@@ -40,9 +41,11 @@ export class LeagueChampionService {
         console.log('fetchAllChampions');
         let temp_champions: Champion[] = [];
         let i = 0;
+        //get all champions for the given language
         const fetched_champions = await this.getAllChamps(language);
         for (const champion in fetched_champions) {
             const champId = fetched_champions[champion].id;
+            //get champion data for the given champion id and language
             const champ_res = await fetch(
                 `http://ddragon.leagueoflegends.com/cdn/${this.version}/data/${this.language.code}/champion/${champId}.json`
             );
@@ -52,7 +55,9 @@ export class LeagueChampionService {
             const champ_data = await champ_res.json();
             const champ = champ_data.data[champId];
             let skinChampId = champ.id;
+            //set the name of the champion for the default skin
             champ.skins[0].name = champ.name;
+            //fix exception on Fiddlesticks
             if (champ.id == 'Fiddlesticks') {
                 skinChampId = 'FiddleSticks';
             }
@@ -64,6 +69,7 @@ export class LeagueChampionService {
                 `http://ddragon.leagueoflegends.com/cdn/${this.version}/img/champion/` +
                 champ.id +
                 '.png';
+            //create a champion object with all the data
             let championObj: Champion = new Champion(
                 i,
                 champ.name,
@@ -78,6 +84,7 @@ export class LeagueChampionService {
             temp_champions.push(championObj);
             i++;
         }
+        //when all champions are fetched, go to the home page
         this.router.navigateByUrl('/');
         this.language.charged = true;
         this.champions[language.slice(0, 2)] = temp_champions;
@@ -87,10 +94,14 @@ export class LeagueChampionService {
         const global_res = await fetch(
             'http://ddragon.leagueoflegends.com/cdn/languages.json'
         );
+        if (!global_res.ok) {
+            throw 'Error :' + global_res.status;
+        }
         let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
         const data = await global_res.json();
         for (const language of data) {
             const regionCode = language.slice(-2);
+            //get the name of the region from the region code
             const name = regionNames.of(regionCode);
             const code = language;
             if (name != undefined) {
@@ -100,6 +111,7 @@ export class LeagueChampionService {
                     charged: false,
                     sliced_code: code.slice(0, 2),
                 };
+                //fix exception on Indonesian
                 if (languageObject.code != 'id_ID') {
                     this.languages.push(languageObject);
                 }
@@ -143,6 +155,7 @@ export class LeagueChampionService {
         this.language = this.languages.find(
             (lang) => lang.code == language
         ) as Language;
+        //if the language is not charged, fetch all champions for the given language
         if (this.champions[language.slice(0, 2)] == undefined) {
             this.fetchAllChampions(this.language.code);
         } else {
@@ -170,7 +183,7 @@ export class LeagueChampionService {
         if (this.champions == undefined) {
             return;
         }
-        //if champion name contains filter
+        //if champion name contains the filter string, set the champion to visible
         for (let champion in this.champions[this.language.sliced_code]) {
             if (
                 this.champions[this.language.sliced_code][champion].name

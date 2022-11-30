@@ -31,6 +31,7 @@ export class LeagueChampionComponent implements OnInit {
 
                 if (this.champion) {
                     this.champion.currentSkin = 0;
+                    //if the type of display doesnt contain images, the champion is loaded
                     if (this.type != 'skins' && this.type != 'all') {
                         this.champion.loaded = true;
                     }
