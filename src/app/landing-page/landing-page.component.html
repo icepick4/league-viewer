@@ -1,41 +1,31 @@
-<div class="images">
-    <img src="assets/landing-page.png" alt="Landing page" id="main-image" />
-    <div *ngIf="languageCharged">
-        <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png"
-            alt={{languageCharged.name}} id="lang">
+<div class="container">
+    <div class="images">
+        <img src="assets/landing-page.png" alt="Landing page" id="main-image" />
+        <div *ngIf="languageCharged">
+            <img src="https://flagcdn.com/h120/{{languageCharged.code.slice(-2) | lowercase}}.png"
+                alt={{languageCharged.name}} id="lang">
+        </div>
     </div>
-</div>
-<div class="links">
-    <div class="link">
-        <a routerLink="champions/names">
-            <img src="assets/names_bg.png" alt="Champions" />
-            <p>
-                Names
-            </p>
-        </a>
-    </div>
-    <div class="link">
-        <a routerLink="champions/lore">
-            <img src="assets/lore_bg.png" alt="Lore" />
-            <p>
-                Lore
-            </p>
-        </a>
-    </div>
-    <div class="link">
-        <a routerLink="champions/skins">
-            <img src="assets/skins_bg.png" alt="Skins" />
-            <p>
-                Skins
-            </p>
-        </a>
-    </div>
-    <div class="link">
-        <a routerLink="champions/all">
-            <img src="assets/all_bg.png" alt="All" />
-            <p>
-                All
-            </p>
-        </a>
+    <div class="links">
+        <div class="link red">
+            <a routerLink="champions/names">
+                <p>Names</p>
+            </a>
+        </div>
+        <div class="link green">
+            <a routerLink="champions/lore">
+              <p>Lore</p>
+            </a>
+        </div>
+        <div class="link blue">
+            <a routerLink="champions/skins">
+                <p>Skins</p>
+            </a>
+        </div>
+        <div class="link purple">
+            <a routerLink="champions/all">
+                <p>All</p>
+            </a>
+        </div>
     </div>
 </div>
