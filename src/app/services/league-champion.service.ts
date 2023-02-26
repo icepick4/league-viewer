@@ -30,10 +30,10 @@ export class LeagueChampionService {
 
     async getVersion(): Promise<void> {
         //get the current version of the game
-        const version_res = await fetch(
+        const versionResponse = await fetch(
             'http://ddragon.leagueoflegends.com/api/versions.json'
         );
-        const version = (await version_res.json())[0];
+        const version = (await versionResponse.json())[0];
         this.version = version;
     }
 
@@ -46,14 +46,14 @@ export class LeagueChampionService {
         for (const champion in fetched_champions) {
             const champId = fetched_champions[champion].id;
             //get champion data for the given champion id and language
-            const champ_res = await fetch(
+            const champResponse = await fetch(
                 `http://ddragon.leagueoflegends.com/cdn/${this.version}/data/${this.language.code}/champion/${champId}.json`
             );
-            if (!champ_res.ok) {
-                throw 'Error :' + champ_res.status;
+            if (!champResponse.ok) {
+                throw 'Error :' + champResponse.status;
             }
-            const champ_data = await champ_res.json();
-            const champ = champ_data.data[champId];
+            const champData = await champResponse.json();
+            const champ = champData.data[champId];
             let skinChampId = champ.id;
             //set the name of the champion for the default skin
             champ.skins[0].name = champ.name;
@@ -61,6 +61,7 @@ export class LeagueChampionService {
             if (champ.id == 'Fiddlesticks') {
                 skinChampId = 'FiddleSticks';
             }
+            const roles = champ.tags;
             const mainImage =
                 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' +
                 champ.id +
@@ -79,7 +80,8 @@ export class LeagueChampionService {
                 this.getSkins(champ.skins, skinChampId),
                 0,
                 false,
-                true
+                true,
+                roles
             );
             temp_champions.push(championObj);
             i++;

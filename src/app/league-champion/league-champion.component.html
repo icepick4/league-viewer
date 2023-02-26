@@ -3,6 +3,10 @@
     <div *ngIf="champion.loaded">
         <div class="top">
             <h1 id=" title">{{champion.skins[champion.currentSkin].name | titlecase}}</h1>
+            <div *ngFor="let role of champion.roles" class="role">
+                <h2>{{role}}</h2>
+                <img src="assets/roles/{{role}}.webp" alt="{{role}}">
+            </div>
             <app-close-champion id="close"></app-close-champion>
         </div>
     </div>
