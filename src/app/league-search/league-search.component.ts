@@ -23,7 +23,10 @@ export class LeagueSearchComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.selectedRole = this.leagueChampionService.role;
+        this.search = this.leagueChampionService.search;
+    }
 
     filterChampions(event: any): void {
         this.search = event.target.value;

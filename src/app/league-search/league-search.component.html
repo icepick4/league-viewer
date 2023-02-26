@@ -1,6 +1,6 @@
 <div class="container">
-    <input type="text" id="input-champ" placeholder="Search for a league champion" (input)="filterChampions($event)"
-        (click)="filterChampions($event)" />
+    <input type="text" id="input-champ" placeholder="Search for a champion..." (input)="filterChampions($event)"
+        (submit)="filterChampions($event)" />
     <div *ngIf="search == 'cat'">
         <app-cat-easter-egg></app-cat-easter-egg>
     </div>

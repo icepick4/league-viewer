@@ -16,6 +16,8 @@ export class LeagueChampionService {
         sliced_code: 'en',
     };
     version!: string;
+    role!: string;
+    search!: string;
     constructor(private router: Router) {
         this.languages = [];
         this.champions = {};
@@ -182,6 +184,7 @@ export class LeagueChampionService {
     }
 
     filterChampionsByRole(role: string): void {
+        this.role = role;
         if (this.champions == undefined) {
             return;
         }
@@ -200,6 +203,7 @@ export class LeagueChampionService {
     }
 
     filterChampions(filter: string): void {
+        this.search = filter;
         if (this.champions == undefined) {
             return;
         }

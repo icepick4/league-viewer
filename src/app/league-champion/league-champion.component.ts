@@ -38,7 +38,5 @@ export class LeagueChampionComponent implements OnInit {
             }
         });
     }
-    ngOnInit(): void {
-        console.log('init the single champ');
-    }
+    ngOnInit(): void {}
 }
