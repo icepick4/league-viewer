@@ -2,9 +2,6 @@ button {
     background: none;
     border: none;
     cursor: pointer;
-    // position: absolute;
-    // top: -0.5vw;
-    // right: 1%;
     font-size: 1.5em;
     font-weight: bold;
     margin: 15px;
@@ -40,8 +37,6 @@ button {
 
 @media only screen and (hover: none) and (pointer: coarse) {
     button {
-        // top: -5%;
-        // right: 0;
         transform: scale(0.7);
     }
 }

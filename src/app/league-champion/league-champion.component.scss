@@ -46,6 +46,7 @@
 
 .top #close {
     margin-top: -2%;
+    width: 75px;
 }
 
 h1 {
@@ -68,6 +69,11 @@ h1 {
             font-size: 4vw;
         }
     }
+
+    .roles{
+        flex-direction: column;
+    }
+    
     .no-width {
         h1 {
             font-size: 4em;

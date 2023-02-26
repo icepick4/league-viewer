@@ -26,6 +26,8 @@ export class LeagueSearchComponent implements OnInit {
     ngOnInit(): void {
         this.selectedRole = this.leagueChampionService.role;
         this.search = this.leagueChampionService.search;
+        const input = document.getElementById('input-champ') as HTMLInputElement;
+        input.value = this.search;
     }
 
     filterChampions(event: any): void {
