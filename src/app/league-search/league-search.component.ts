@@ -20,13 +20,6 @@ export class LeagueSearchComponent implements OnInit {
             if (router.url === '/') {
                 this.leagueChampionService.unfilterChampions();
             }
-            if (
-                router.url != '/champions/skins' &&
-                router.url != '/champions/names' &&
-                router.url != '/champions/lore'
-            ) {
-                this.leagueChampionService.unfilterChampions();
-            }
         });
     }
 

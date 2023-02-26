@@ -11,8 +11,4 @@ export class CloseChampionComponent implements OnInit {
     constructor(private router: Router) {}
 
     ngOnInit(): void {}
-
-    close(): void {
-        this.router.navigate([`/champions/${this.type}`]);
-    }
 }
