@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { roles } from '../models/champion.model';
 import { LeagueChampionService } from '../services/league-champion.service';
-
 @Component({
     selector: 'app-league-search',
     templateUrl: './league-search.component.html',
@@ -9,9 +9,12 @@ import { LeagueChampionService } from '../services/league-champion.service';
 })
 export class LeagueSearchComponent implements OnInit {
     search!: string;
+    roles = roles;
+    selectedRole!: string;
     constructor(
         private leagueChampionService: LeagueChampionService,
-        private router: Router
+        private router: Router,
+        private route : ActivatedRoute
     ) {
         router.events.subscribe(async () => {
             if (router.url === '/') {
@@ -35,5 +38,16 @@ export class LeagueSearchComponent implements OnInit {
         //remove all spaces
         const filterNoSpaces = filter.replace(/\s/g, '');
         this.leagueChampionService.filterChampions(filterNoSpaces);
+    }
+
+    filterChampionsByRole(role: string): void {
+        if (role != this.selectedRole){
+            this.selectedRole = role;
+            this.leagueChampionService.filterChampionsByRole(this.selectedRole);
+        }
+        else{
+            this.selectedRole = '';
+            this.leagueChampionService.unfilterChampions();
+        }
     }
 }

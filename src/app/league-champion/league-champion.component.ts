@@ -28,7 +28,6 @@ export class LeagueChampionComponent implements OnInit {
                 this.type = this.route.snapshot.params['type'];
                 this.champion =
                     this.leagueChampionService.getChampionByName(name);
-
                 if (this.champion) {
                     this.champion.currentSkin = 0;
                     //if the type of display doesnt contain images, the champion is loaded

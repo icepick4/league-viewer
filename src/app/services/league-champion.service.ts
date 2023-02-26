@@ -181,6 +181,24 @@ export class LeagueChampionService {
         return this.champions[this.language.sliced_code];
     }
 
+    filterChampionsByRole(role: string): void {
+        if (this.champions == undefined) {
+            return;
+        }
+        for (let champion in this.champions[this.language.sliced_code]) {
+            if (
+                this.champions[this.language.sliced_code][champion].roles.includes(
+                    role
+                )
+            ) {
+                this.champions[this.language.sliced_code][champion].show = true;
+            }
+            else{
+                this.champions[this.language.sliced_code][champion].show = false;
+            }
+        }
+    }
+
     filterChampions(filter: string): void {
         if (this.champions == undefined) {
             return;

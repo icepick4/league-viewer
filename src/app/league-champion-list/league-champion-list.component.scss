@@ -3,6 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(9%, 1fr));
     grid-gap: 1rem;
     margin: 1rem;
+    margin-top: 0;
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {

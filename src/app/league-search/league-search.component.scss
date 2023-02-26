@@ -1,5 +1,4 @@
 #input-champ {
-    font-family: "Courier New", Courier, monospace;
     width: 90%;
     border: 0;
     border-radius: 5px;
@@ -8,7 +7,6 @@
     margin-top: 1rem;
     font-size: 3vw;
     color: #333;
-    font-weight: 300;
     outline: none;
     box-shadow: none;
 }
@@ -17,6 +15,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    .roles{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        p{
+            font-size: 2em;
+            margin: 0px;
+            color: #000000;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+        }
+        .role{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 5px;
+            background-color: #4b33d1;
+            transition: all 0.2s ease;
+            border: 2px solid #000000;
+            cursor: pointer;
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+                background-color: darken(#3921bc, 5%);
+            }
+
+            &.active{
+                border: 4px solid #000000;
+                background-color: #b127a1;
+            }
+        }
+    }
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {

@@ -4,4 +4,12 @@
     <div *ngIf="search == 'cat'">
         <app-cat-easter-egg></app-cat-easter-egg>
     </div>
+    <div class="roles">
+        <div *ngFor="let role of roles">
+            <div (click)="filterChampionsByRole(role)" class="role" [ngClass]="[role == selectedRole ? 'active' : '']">
+                <p>{{role}}</p>
+                <img src="assets/roles/{{role}}.webp" alt="{{role}}">
+            </div>
+        </div>
+    </div>
 </div>

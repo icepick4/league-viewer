@@ -35,3 +35,12 @@ export class Champion {
         }
     }
 }
+
+export const roles = [
+    'Fighter',
+    'Tank',
+    'Mage',
+    'Assassin',
+    'Marksman',
+    'Support',
+]

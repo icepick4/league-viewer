@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Champion } from '../models/champion.model';
+import { Champion, roles } from '../models/champion.model';
 import { languagesNames } from '../models/language.model';
 
 import { LeagueChampionService } from '../services/league-champion.service';
@@ -15,7 +15,16 @@ export class LeagueChampionListComponent implements OnInit {
         private leagueChampionService: LeagueChampionService,
         private router: Router,
         private activatedRoute: ActivatedRoute
-    ) {}
+    ) {
+        //subscribe to the param role in url
+        this.activatedRoute.params.subscribe((params) => {
+            const role = params['filter'];
+            console.log(role);
+            if (roles.includes(role)) {
+                this.leagueChampionService.filterChampionsByRole(role);
+            }
+        });
+    }
 
     ngOnInit(): void {
         this.champions = this.leagueChampionService.getAllChampions();
