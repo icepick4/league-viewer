@@ -33,7 +33,7 @@ export class LeagueSearchComponent implements OnInit {
         const filter = event.target.value;
         //remove all spaces
         const filterNoSpaces = filter.replace(/\s/g, '');
-        this.leagueChampionService.filterChampions(filterNoSpaces);
+        this.leagueChampionService.filterChampionsByName(filterNoSpaces);
     }
 
     filterChampionsByRole(role: string): void {

@@ -16,8 +16,8 @@ export class LeagueChampionService {
         sliced_code: 'en',
     };
     version!: string;
-    role!: string;
-    search!: string;
+    role: string = '';
+    search: string = '';
     constructor(private router: Router) {
         this.languages = [];
         this.champions = {};
@@ -192,7 +192,7 @@ export class LeagueChampionService {
             if (
                 this.champions[this.language.sliced_code][champion].roles.includes(
                     role
-                )
+                ) && this.champions[this.language.sliced_code][champion].name .toLowerCase() .includes(this.search.toLowerCase())
             ) {
                 this.champions[this.language.sliced_code][champion].show = true;
             }
@@ -202,7 +202,7 @@ export class LeagueChampionService {
         }
     }
 
-    filterChampions(filter: string): void {
+    filterChampionsByName(filter: string): void {
         this.search = filter;
         if (this.champions == undefined) {
             return;
@@ -214,7 +214,9 @@ export class LeagueChampionService {
                     .toLowerCase()
                     .includes(filter.toLowerCase())
             ) {
-                this.champions[this.language.sliced_code][champion].show = true;
+                if (this.role != '' && this.champions[this.language.sliced_code][champion].roles.includes(this.role)) {
+                    this.champions[this.language.sliced_code][champion].show = true;
+                }
             } else {
                 this.champions[this.language.sliced_code][champion].show =
                     false;
