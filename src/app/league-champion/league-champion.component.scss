@@ -26,6 +26,17 @@
     }
 }
 
+.main-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        border-radius: 15px;
+        width: 50%;
+        height: 50%;
+    }
+}
+
 .top {
     display: flex;
     justify-content: space-between;

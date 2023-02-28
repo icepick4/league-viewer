@@ -13,6 +13,9 @@
             <app-close-champion id="close"></app-close-champion>
         </div>
     </div>
+    <div *ngIf="type == 'names'&& champion.loaded" class="main-image">
+        <img [src]="champion.mainImage" alt="{{champion.name}}">
+    </div>
     <div *ngIf="(type == 'skins' || type == 'all')">
         <app-league-champion-skins [champion]="champion">
         </app-league-champion-skins>
