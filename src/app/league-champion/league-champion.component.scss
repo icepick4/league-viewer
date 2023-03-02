@@ -30,10 +30,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
     img{
         border-radius: 15px;
-        width: 50%;
-        height: 50%;
+        width: 75%;
+        height: 75%;
     }
 }
 
@@ -84,14 +85,24 @@ h1 {
     .roles{
         flex-direction: column;
     }
+
+    .top{
+        flex-direction: column-reverse;
+        #close{
+            width: 0px;
+        }
+    }
+    .main-image{
+        img{
+            width: 15rem;
+            height: auto;
+        }
+    }
     
     .no-width {
         h1 {
             font-size: 4em;
         }
-    }
-    .champion {
-        padding: 10px;
     }
 }
 
@@ -112,10 +123,7 @@ h1 {
     }
     .no-width {
         h1 {
-            font-size: 2.5em;
+            font-size: auto;
         }
-    }
-    .champion {
-        padding: 10px;
     }
 }

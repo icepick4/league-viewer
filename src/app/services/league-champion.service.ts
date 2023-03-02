@@ -214,7 +214,7 @@ export class LeagueChampionService {
                     .toLowerCase()
                     .includes(filter.toLowerCase())
             ) {
-                if (this.role != '' && this.champions[this.language.sliced_code][champion].roles.includes(this.role)) {
+                if (this.role != '' && this.champions[this.language.sliced_code][champion].roles.includes(this.role) || this.role == '') {
                     this.champions[this.language.sliced_code][champion].show = true;
                 }
             } else {

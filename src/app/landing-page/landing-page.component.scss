@@ -1,8 +1,3 @@
-.landing-links {
-    width: 100%;
-    text-align: center;
-}
-
 #main-image {
     width: 10%;
     height: auto;
@@ -20,13 +15,15 @@
 }
 
 .container {
-    height: calc(100vh - 5vw);
+    height: auto;
     display: flex;
     align-items: stretch;
     justify-content: center;
     flex-direction: column;
     width: 100%;
     gap: 15rem;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .links {
@@ -46,6 +43,7 @@
         justify-content: center;
         text-align: center;
         text-decoration: none;
+        width: 7rem;
 
         &.red {
             background-color: #e74c3c;

@@ -31,6 +31,7 @@ export class LeagueSearchComponent implements OnInit {
     }
 
     filterChampions(event: any): void {
+        console.log("filterChampions")
         this.search = event.target.value;
         const filter = event.target.value;
         //remove all spaces
