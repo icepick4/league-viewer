@@ -183,39 +183,30 @@ export class LeagueChampionService {
         return this.champions[this.language.sliced_code];
     }
 
-    filterChampionsByRole(role: string): void {
-        this.role = role;
+    filterChampions(): void {
         if (this.champions == undefined) {
             return;
         }
         for (let champion in this.champions[this.language.sliced_code]) {
-            if (
-                this.champions[this.language.sliced_code][champion].roles.includes(
-                    role
-                ) && this.champions[this.language.sliced_code][champion].name .toLowerCase() .includes(this.search.toLowerCase())
-            ) {
-                this.champions[this.language.sliced_code][champion].show = true;
-            }
-            else{
-                this.champions[this.language.sliced_code][champion].show = false;
-            }
-        }
-    }
-
-    filterChampionsByName(filter: string): void {
-        this.search = filter;
-        if (this.champions == undefined) {
-            return;
-        }
-        //if champion name contains the filter string, set the champion to visible
-        for (let champion in this.champions[this.language.sliced_code]) {
+            //if champion name contains the filter string
             if (
                 this.champions[this.language.sliced_code][champion].name
                     .toLowerCase()
-                    .includes(filter.toLowerCase())
+                    .includes(this.search.toLowerCase())
             ) {
-                if (this.role != '' && this.champions[this.language.sliced_code][champion].roles.includes(this.role) || this.role == '') {
-                    this.champions[this.language.sliced_code][champion].show = true;
+                //if the champion has the role selected or if no role is selected
+                if (
+                    (this.role != '' &&
+                        this.champions[this.language.sliced_code][
+                            champion
+                        ].roles.includes(this.role)) ||
+                    this.role == ''
+                ) {
+                    this.champions[this.language.sliced_code][champion].show =
+                        true;
+                } else {
+                    this.champions[this.language.sliced_code][champion].show =
+                        false;
                 }
             } else {
                 this.champions[this.language.sliced_code][champion].show =
@@ -224,9 +215,27 @@ export class LeagueChampionService {
         }
     }
 
-    unfilterChampions(): void {
-        for (let champion in this.champions[this.language.sliced_code]) {
-            this.champions[this.language.sliced_code][champion].show = true;
-        }
+    setRole(role: string): void {
+        this.role = role;
+        this.filterChampions();
+    }
+
+    setSearch(search: string): void {
+        this.search = search;
+        this.filterChampions();
+    }
+
+    resetRole(): void {
+        this.role = '';
+        this.filterChampions();
+    }
+
+    resetSearch(): void {
+        this.search = '';
+        this.filterChampions();
+    }
+
+    searchIsEmpty(): boolean {
+        return this.search == '' && this.role == '';
     }
 }
